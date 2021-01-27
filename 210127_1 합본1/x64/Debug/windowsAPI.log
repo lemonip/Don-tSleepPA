@@ -1,0 +1,104 @@
+﻿  stdafx.cpp
+c:\users\home\desktop\프로그래밍\팀포트폴리오-프리즌아키텍트\210127_1 합본1\imagemanager.h(22): warning C4099: 'IWICImagingFactory': 처음에는 'struct'을(를) 사용하여 형식 이름을 표시했는데 이제는 'class'을(를) 사용하여 표시합니다.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\um\wincodec.h(6261): note: 'IWICImagingFactory' 선언을 참조하십시오.
+c:\users\home\desktop\프로그래밍\팀포트폴리오-프리즌아키텍트\210127_1 합본1\image.h(73): warning C4244: 'return': 'const float'에서 'const int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Button.cpp
+  CameraManager.cpp
+  Component.cpp
+  ComponentTest.cpp
+  D2DRenderer+Draw.cpp
+c:\users\home\desktop\프로그래밍\팀포트폴리오-프리즌아키텍트\210127_1 합본1\d2drenderer+draw.cpp(33): warning C4267: '인수': 'size_t'에서 'UINT32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\home\desktop\프로그래밍\팀포트폴리오-프리즌아키텍트\210127_1 합본1\d2drenderer+draw.cpp(38): warning C4267: '=': 'size_t'에서 'UINT32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\home\desktop\프로그래밍\팀포트폴리오-프리즌아키텍트\210127_1 합본1\d2drenderer+draw.cpp(78): warning C4267: '인수': 'size_t'에서 'UINT32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\home\desktop\프로그래밍\팀포트폴리오-프리즌아키텍트\210127_1 합본1\d2drenderer+draw.cpp(83): warning C4267: '=': 'size_t'에서 'UINT32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\home\desktop\프로그래밍\팀포트폴리오-프리즌아키텍트\210127_1 합본1\d2drenderer+draw.cpp(126): warning C4267: '인수': 'size_t'에서 'UINT32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\home\desktop\프로그래밍\팀포트폴리오-프리즌아키텍트\210127_1 합본1\d2drenderer+draw.cpp(131): warning C4267: '=': 'size_t'에서 'UINT32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\home\desktop\프로그래밍\팀포트폴리오-프리즌아키텍트\210127_1 합본1\d2drenderer+draw.cpp(171): warning C4267: '인수': 'size_t'에서 'UINT32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\home\desktop\프로그래밍\팀포트폴리오-프리즌아키텍트\210127_1 합본1\d2drenderer+draw.cpp(176): warning C4267: '=': 'size_t'에서 'UINT32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  D2DRenderer.cpp
+c:\users\home\desktop\프로그래밍\팀포트폴리오-프리즌아키텍트\210127_1 합본1\d2drenderer.cpp(90): warning C4244: '초기화 중': 'int'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\home\desktop\프로그래밍\팀포트폴리오-프리즌아키텍트\210127_1 합본1\d2drenderer.cpp(91): warning C4244: '초기화 중': 'int'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  DrawC.cpp
+  Figure.cpp
+  FloatEllipse.cpp
+  FloatRect.cpp
+  GameObject.cpp
+  Line.cpp
+  MapManager.cpp
+  MapToolScene.cpp
+  Math.cpp
+  MouseControl.cpp
+c:\users\home\desktop\프로그래밍\팀포트폴리오-프리즌아키텍트\210127_1 합본1\mousecontrol.cpp(157): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\home\desktop\프로그래밍\팀포트폴리오-프리즌아키텍트\210127_1 합본1\mousecontrol.cpp(158): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\home\desktop\프로그래밍\팀포트폴리오-프리즌아키텍트\210127_1 합본1\mousecontrol.cpp(174): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\home\desktop\프로그래밍\팀포트폴리오-프리즌아키텍트\210127_1 합본1\mousecontrol.cpp(175): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\home\desktop\프로그래밍\팀포트폴리오-프리즌아키텍트\210127_1 합본1\mousecontrol.cpp(212): warning C4244: '초기화 중': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\home\desktop\프로그래밍\팀포트폴리오-프리즌아키텍트\210127_1 합본1\mousecontrol.cpp(214): warning C4244: '초기화 중': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  ScenarioScene.cpp
+  Scene.cpp
+  SelectScene.cpp
+  SoundC.cpp
+  코드를 생성하고 있습니다...
+  컴파일하고 있습니다...
+  StartScene.cpp
+  Tile.cpp
+  TileArea.cpp
+  TileMap.cpp
+c:\users\home\desktop\프로그래밍\팀포트폴리오-프리즌아키텍트\210127_1 합본1\tilemap.cpp(23): warning C4244: '인수': 'float'에서 'const unsigned __int64'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\home\desktop\프로그래밍\팀포트폴리오-프리즌아키텍트\210127_1 합본1\tilemap.cpp(77): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\home\desktop\프로그래밍\팀포트폴리오-프리즌아키텍트\210127_1 합본1\tilemap.cpp(104): warning C4244: '인수': 'float'에서 'const unsigned __int64'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\home\desktop\프로그래밍\팀포트폴리오-프리즌아키텍트\210127_1 합본1\tilemap.cpp(105): warning C4244: '인수': 'float'에서 'const unsigned __int64'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\home\desktop\프로그래밍\팀포트폴리오-프리즌아키텍트\210127_1 합본1\tilemap.cpp(106): warning C4244: '인수': 'float'에서 'const unsigned __int64'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\home\desktop\프로그래밍\팀포트폴리오-프리즌아키텍트\210127_1 합본1\tilemap.cpp(117): warning C4244: '인수': 'float'에서 'const unsigned __int64'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\home\desktop\프로그래밍\팀포트폴리오-프리즌아키텍트\210127_1 합본1\tilemap.cpp(122): warning C4244: '인수': 'float'에서 'const unsigned __int64'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\home\desktop\프로그래밍\팀포트폴리오-프리즌아키텍트\210127_1 합본1\tilemap.cpp(123): warning C4244: '인수': 'float'에서 'const unsigned __int64'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\home\desktop\프로그래밍\팀포트폴리오-프리즌아키텍트\210127_1 합본1\tilemap.cpp(126): warning C4244: '인수': 'float'에서 'const unsigned __int64'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\home\desktop\프로그래밍\팀포트폴리오-프리즌아키텍트\210127_1 합본1\tilemap.cpp(129): warning C4244: '인수': 'float'에서 'const unsigned __int64'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\home\desktop\프로그래밍\팀포트폴리오-프리즌아키텍트\210127_1 합본1\tilemap.cpp(131): warning C4244: '인수': 'float'에서 'const unsigned __int64'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\home\desktop\프로그래밍\팀포트폴리오-프리즌아키텍트\210127_1 합본1\tilemap.cpp(134): warning C4244: '인수': 'float'에서 'const unsigned __int64'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\home\desktop\프로그래밍\팀포트폴리오-프리즌아키텍트\210127_1 합본1\tilemap.cpp(136): warning C4244: '인수': 'float'에서 'const unsigned __int64'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\home\desktop\프로그래밍\팀포트폴리오-프리즌아키텍트\210127_1 합본1\tilemap.cpp(139): warning C4244: '인수': 'float'에서 'const unsigned __int64'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\home\desktop\프로그래밍\팀포트폴리오-프리즌아키텍트\210127_1 합본1\tilemap.cpp(141): warning C4244: '인수': 'float'에서 'const unsigned __int64'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\home\desktop\프로그래밍\팀포트폴리오-프리즌아키텍트\210127_1 합본1\tilemap.cpp(144): warning C4244: '인수': 'float'에서 'const unsigned __int64'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\home\desktop\프로그래밍\팀포트폴리오-프리즌아키텍트\210127_1 합본1\tilemap.cpp(146): warning C4244: '인수': 'float'에서 'const unsigned __int64'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\home\desktop\프로그래밍\팀포트폴리오-프리즌아키텍트\210127_1 합본1\tilemap.cpp(161): warning C4244: '인수': 'float'에서 'const unsigned __int64'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\home\desktop\프로그래밍\팀포트폴리오-프리즌아키텍트\210127_1 합본1\tilemap.cpp(173): warning C4244: '인수': 'float'에서 'const unsigned __int64'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\home\desktop\프로그래밍\팀포트폴리오-프리즌아키텍트\210127_1 합본1\tilemap.cpp(191): warning C4244: '인수': 'float'에서 'const unsigned __int64'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\home\desktop\프로그래밍\팀포트폴리오-프리즌아키텍트\210127_1 합본1\tilemap.cpp(201): warning C4244: '인수': 'float'에서 'const unsigned __int64'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\home\desktop\프로그래밍\팀포트폴리오-프리즌아키텍트\210127_1 합본1\tilemap.cpp(218): warning C4244: '인수': 'float'에서 'const unsigned __int64'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\home\desktop\프로그래밍\팀포트폴리오-프리즌아키텍트\210127_1 합본1\tilemap.cpp(223): warning C4244: '인수': 'float'에서 'const unsigned __int64'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\home\desktop\프로그래밍\팀포트폴리오-프리즌아키텍트\210127_1 합본1\tilemap.cpp(228): warning C4244: '인수': 'float'에서 'const unsigned __int64'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\home\desktop\프로그래밍\팀포트폴리오-프리즌아키텍트\210127_1 합본1\tilemap.cpp(233): warning C4244: '인수': 'float'에서 'const unsigned __int64'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  TileObject.cpp
+  TilePalette.cpp
+  TransformC.cpp
+  Triangle.cpp
+  UI.cpp
+  UIManager.cpp
+  Vector2.cpp
+  animation.cpp
+  csv.cpp
+  gameNode.cpp
+c:\users\home\desktop\프로그래밍\팀포트폴리오-프리즌아키텍트\210127_1 합본1\gamenode.cpp(86): warning C4101: 'hdc' :참조되지 않은 지역 변수입니다.
+c:\users\home\desktop\프로그래밍\팀포트폴리오-프리즌아키텍트\210127_1 합본1\gamenode.cpp(85): warning C4101: 'ps' :참조되지 않은 지역 변수입니다.
+  image.cpp
+  imageManager.cpp
+  keyManager.cpp
+  playGround+AddSource.cpp
+  playGround.cpp
+  sceneManager.cpp
+  코드를 생성하고 있습니다...
+  컴파일하고 있습니다...
+  soundManager.cpp
+  timeManager.cpp
+c:\users\home\desktop\프로그래밍\팀포트폴리오-프리즌아키텍트\210127_1 합본1\timemanager.cpp(49): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\home\desktop\프로그래밍\팀포트폴리오-프리즌아키텍트\210127_1 합본1\timemanager.cpp(52): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\home\desktop\프로그래밍\팀포트폴리오-프리즌아키텍트\210127_1 합본1\timemanager.cpp(55): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  timer.cpp
+c:\users\home\desktop\프로그래밍\팀포트폴리오-프리즌아키텍트\210127_1 합본1\timer.cpp(61): warning C4244: '=': 'float'에서 'unsigned long'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  txtData.cpp
+  windowsAPI.cpp
+c:\users\home\desktop\프로그래밍\팀포트폴리오-프리즌아키텍트\210127_1 합본1\windowsapi.cpp(96): warning C4244: 'return': 'WPARAM'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  코드를 생성하고 있습니다...
+c:\users\home\desktop\프로그래밍\팀포트폴리오-프리즌아키텍트\210127_1 합본1\txtdata.cpp(58): warning C4172: 지역 변수 또는 임시: str의 주소를 반환하고 있습니다.
+  windowsAPI.vcxproj -> C:\Users\Home\Desktop\프로그래밍\팀포트폴리오-프리즌아키텍트\210127_1 합본1\x64\Debug\windowsAPI.exe
