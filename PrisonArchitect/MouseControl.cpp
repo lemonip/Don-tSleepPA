@@ -73,10 +73,20 @@ void MouseControl::Render()
 {
 	if (_isDragging)
 	{
-		//드래그 렉트를 렌더한다.
-		FloatRect dragRc = FloatRect(_startPoint.x, _startPoint.y, _endPoint.x + TILESIZE, _endPoint.y + TILESIZE);
-		dragRc = CAMERAMANAGER->GetVCamera()[0]->GetRelativePos(dragRc);
-		_D2DRenderer->FillRectangle(dragRc, D2DRenderer::DefaultBrush::Red);
+		if (_drag == MOUSEDRAG::LINE)
+		{
+			//드래그 선을 렌더한다.
+			FloatRect dragRc = FloatRect(_startPoint.x, _startPoint.y, _endPoint.x + TILESIZE, _endPoint.y + TILESIZE);
+			dragRc = CAMERAMANAGER->GetVCamera()[0]->GetRelativePos(dragRc);
+			_D2DRenderer->DrawRectangle(dragRc, D2DRenderer::DefaultBrush::Blue, 5.0f);
+		}
+		else
+		{
+			//드래그 렉트를 렌더한다.
+			FloatRect dragRc = FloatRect(_startPoint.x, _startPoint.y, _endPoint.x + TILESIZE, _endPoint.y + TILESIZE);
+			dragRc = CAMERAMANAGER->GetVCamera()[0]->GetRelativePos(dragRc);
+			_D2DRenderer->FillRectangle(dragRc, D2DRenderer::DefaultBrush::Blue);
+		}
 	}
 
 	if (_mouseObj)
@@ -89,13 +99,13 @@ void MouseControl::Render()
 			{
 				objRc = FloatRect(_endPoint.x, _endPoint.y, _endPoint.x + _mouseObj->_count.x*TILESIZE, _endPoint.y + _mouseObj->_count.y*TILESIZE);
 				objRc = CAMERAMANAGER->GetVCamera()[0]->GetRelativePos(objRc);
-				_D2DRenderer->FillRectangle(objRc, D2DRenderer::DefaultBrush::Blue);
+				_D2DRenderer->FillRectangle(objRc, D2DRenderer::DefaultBrush::Green);
 			}
 			else if (_mouseObj->_direction == DIRECTION::RIGHT || _mouseObj->_direction == DIRECTION::LEFT)
 			{
 				objRc = FloatRect(_endPoint.x, _endPoint.y, _endPoint.x + _mouseObj->_count.y*TILESIZE, _endPoint.y + _mouseObj->_count.x*TILESIZE);
 				objRc = CAMERAMANAGER->GetVCamera()[0]->GetRelativePos(objRc);
-				_D2DRenderer->FillRectangle(objRc, D2DRenderer::DefaultBrush::Blue);
+				_D2DRenderer->FillRectangle(objRc, D2DRenderer::DefaultBrush::Green);
 			}
 
 			//왼쪽이라면 이미지를 가로로 뒤집는다.
@@ -116,13 +126,13 @@ void MouseControl::Render()
 					, _mouseObj->_frame[(int)_mouseObj->_direction], 0, CAMERAMANAGER->GetVCamera()[0]);
 			}
 		}
-		else
-		{
-			//엔드 렉트를 렌더한다.
-			FloatRect dragRc = FloatRect(_endPoint.x, _endPoint.y, _endPoint.x + TILESIZE, _endPoint.y + TILESIZE);
-			dragRc = CAMERAMANAGER->GetVCamera()[0]->GetRelativePos(dragRc);
-			_D2DRenderer->FillRectangle(dragRc, D2DRenderer::DefaultBrush::Blue);
-		}
+		//else if (_mouseObj->_type != OBJECTTYPE::WALL)
+		//{
+		//	//엔드 렉트를 렌더한다.
+		//	FloatRect dragRc = FloatRect(_endPoint.x, _endPoint.y, _endPoint.x + TILESIZE, _endPoint.y + TILESIZE);
+		//	dragRc = CAMERAMANAGER->GetVCamera()[0]->GetRelativePos(dragRc);
+		//	_D2DRenderer->FillRectangle(dragRc, D2DRenderer::DefaultBrush::Blue);
+		//}
 	}
 }
 

@@ -216,6 +216,9 @@
     <ClInclude Include="TileArea.h">
       <Filter>playGround\TileMap</Filter>
     </ClInclude>
+    <ClInclude Include="TileObjectStorage.h">
+      <Filter>playGround\TileMap</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="windowsAPI.cpp">
@@ -351,6 +354,9 @@
       <Filter>playGround\Scene</Filter>
     </ClCompile>
     <ClCompile Include="TileArea.cpp">
+      <Filter>playGround\TileMap</Filter>
+    </ClCompile>
+    <ClCompile Include="TileObjectStorage.cpp">
       <Filter>playGround\TileMap</Filter>
     </ClCompile>
   </ItemGroup>

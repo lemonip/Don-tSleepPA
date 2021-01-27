@@ -189,6 +189,7 @@
     <ClInclude Include="TileArea.h" />
     <ClInclude Include="TileMap.h" />
     <ClInclude Include="TileObject.h" />
+    <ClInclude Include="TileObjectStorage.h" />
     <ClInclude Include="timeManager.h" />
     <ClInclude Include="timer.h" />
     <ClInclude Include="TransformC.h" />
@@ -241,6 +242,7 @@
     <ClCompile Include="TileArea.cpp" />
     <ClCompile Include="TileMap.cpp" />
     <ClCompile Include="TileObject.cpp" />
+    <ClCompile Include="TileObjectStorage.cpp" />
     <ClCompile Include="timeManager.cpp" />
     <ClCompile Include="timer.cpp" />
     <ClCompile Include="TransformC.cpp" />
