@@ -90,6 +90,7 @@ enum class TILEOBJECT
 	벤치,
 	변기,
 	사무실책상,
+	END,
 };
 
 //사람역할

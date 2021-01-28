@@ -47,10 +47,10 @@ public:
 class Staff : public People
 {
 private:
-	ROLE _role;			//역할
+	PEOPLEROLE _role;			//역할
 
 public:
-	Staff(ROLE role);
+	Staff(PEOPLEROLE role);
 	~Staff();
 	virtual HRESULT init();
 	virtual void release();

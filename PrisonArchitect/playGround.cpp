@@ -31,7 +31,8 @@ HRESULT playGround::init()
 	//UI д╚╦ч╤С
 	CAMERAMANAGER->CreateCamera(FloatRect(0, 0, WINSIZEX, WINSIZEY));
 
-	SCENEMANAGER->addScene("╦й╬ю", new MapToolScene);
+	//SCENEMANAGER->addScene("╦й╬ю", new MapToolScene);
+	SCENEMANAGER->addScene("╦й╬ю", new TestScene);
 	SCENEMANAGER->changeScene("╦й╬ю");
 
 	//csvев╫╨ф╝

@@ -97,7 +97,7 @@ void Prisoner::render()
 }
 
 
-Staff::Staff(ROLE role)
+Staff::Staff(PEOPLEROLE role)
 {
 	_transform = AddComponent<TransformC>();
 	_transform->SetPosition(Vector2(WINSIZEX / 2, WINSIZEY / 2));
