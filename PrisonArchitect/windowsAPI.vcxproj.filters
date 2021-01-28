@@ -159,9 +159,6 @@
     <ClInclude Include="TileObject.h">
       <Filter>playGround\TileMap</Filter>
     </ClInclude>
-    <ClInclude Include="MouseControl.h">
-      <Filter>playGround\TileMap</Filter>
-    </ClInclude>
     <ClInclude Include="AllEnums.h">
       <Filter>playGround</Filter>
     </ClInclude>
@@ -218,6 +215,12 @@
     </ClInclude>
     <ClInclude Include="TileObjectStorage.h">
       <Filter>playGround\TileMap</Filter>
+    </ClInclude>
+    <ClInclude Include="MouseControl.h">
+      <Filter>playGround</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectoryTest.h">
+      <Filter>playGround</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -302,9 +305,6 @@
     <ClCompile Include="TileObject.cpp">
       <Filter>playGround\TileMap</Filter>
     </ClCompile>
-    <ClCompile Include="MouseControl.cpp">
-      <Filter>playGround\TileMap</Filter>
-    </ClCompile>
     <ClCompile Include="csv.cpp">
       <Filter>playGround\csv</Filter>
     </ClCompile>
@@ -358,6 +358,12 @@
     </ClCompile>
     <ClCompile Include="TileObjectStorage.cpp">
       <Filter>playGround\TileMap</Filter>
+    </ClCompile>
+    <ClCompile Include="MouseControl.cpp">
+      <Filter>playGround</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectoryTest.cpp">
+      <Filter>playGround</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

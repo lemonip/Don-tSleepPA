@@ -16,12 +16,8 @@ private:
 	vector<Tile*> _vTile;				//타일 벡터
 	vector<TileObject*> _vTileObj;		//타일 오브젝트
 
-	Image* _terrainImg;					//지형 이미지
-
 	Vector2 _count;						//타일 x, y 개수
 	int _tileCount;						//전체 타일 개수
-
-	MouseControl _mouse;				//마우스
 
 public:
 	virtual HRESULT init();
@@ -40,7 +36,7 @@ public:
 	//벽의 오토타일 프레임을 구해 줌
 	int GetWallFrame(Vector2 index, TileObject* tileObj);
 	
-	//bool CanBuildTile(Vector2 index, TileObject* tileObj);
+	bool CanBuildTile(Vector2 index, TileObject* tileObj);
 
 	//void BuildTileObject(Tile* tile, TileObject* tileObj, DIRECTION direction);
 

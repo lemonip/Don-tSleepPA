@@ -4,8 +4,6 @@
 
 enum class AREATYPE
 {
-	NONE,			//없음
-
 	JAIL,			//감옥
 	KITCHEN,		//부엌
 	FOODCOURT,		//식당
@@ -14,29 +12,31 @@ enum class AREATYPE
 	DUMP,			//쓰레기장
 	FIELD,			//운동장
 	MEDICAL,		//의무실
+
+	END,			//없음
 };
 
 enum class MOUSESTATE
 {
-	NONE,		//없음
 	SELECT,		//선택
 	BUILD,		//설치
+	END,		//없음
 };
 
 enum class MOUSEDRAG
 {
-	NONE,		//없음
 	POINT,		//점
 	LINE,		//선
 	RECT,		//렉트
+	END,		//없음
 };
 
 enum class OBJECTTYPE
 {
-	NONE,		//없음
 	TERRAIN,	//지형
 	WALL,		//벽
 	OBJECT,		//물건
+	END,		//없음
 };
 
 enum class DIRECTION
@@ -59,14 +59,28 @@ enum class TILETERRAIN
 	FLOOR,
 	ROAD,
 	ASPHALT,
+	MUD,
+	BRICK,
+	ROCK,
+	MOON,
+	FLOOR2,
+	FLOWER,
+	CRACK,
+	TILE,
+	CARPET,
+	MONO,
+	END,
 };
 
 enum class TILEWALL
 {
-	WALL0,
-	WALL1,
-	WALL2,
-	WALL3,
+	WALL0,	 WALL1, WALL2,	WALL3,	WALL4,
+	WALL5,	WALL6,	WALL7,	WALL8,	WALL9,
+	WALL10, WALL11, WALL12, WALL13, WALL14,
+	WALL15, WALL16, WALL17, WALL18, WALL19,
+	WALL20, WALL21, WALL22, WALL23, WALL24,
+	WALL25, WALL26, WALL27, WALL28, WALL29,
+	END,
 };
 
 enum class TILEOBJECT
@@ -76,4 +90,5 @@ enum class TILEOBJECT
 	벤치,
 	변기,
 	사무실책상,
+	END,
 };

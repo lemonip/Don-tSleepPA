@@ -13,7 +13,7 @@ private:
 public:
 	TileObject(TILETERRAIN type);
 	TileObject(TILEWALL type);
-	TileObject(TILEOBJECT type, DIRECTION direction);
+	TileObject(TILEOBJECT type);
 	~TileObject() {}
 
 	OBJECTTYPE _type;			//타입
@@ -22,6 +22,7 @@ public:
 	TILEWALL	_wallType;		//벽 타입
 	TILEOBJECT	_objType;		//오브젝트 타입
 
+	string		_key;			//키 (이미지 파일이름)
 	string		_name;			//이름
 	string		_tag;			//태그
 	int			_price;			//가격

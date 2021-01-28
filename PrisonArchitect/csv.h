@@ -24,7 +24,7 @@ public:
 		string str_buf; //읽은 문자를 받을 버퍼
 		ifstream file; //파일읽는 자료형. 파일의 자료형
 
-		file.open("가구.csv", ios::in);
+		file.open("objectFile.csv", ios::in);
 
 		//fail()함수 : 파일 여는것에 실패할경우를 알려줌 
 		if (file.fail())cout << "파일을 여는 데 실패했습니다." << endl;

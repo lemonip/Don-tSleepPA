@@ -157,6 +157,7 @@
     <ClInclude Include="ComponentTest.h" />
     <ClInclude Include="csv.h" />
     <ClInclude Include="D2DRenderer.h" />
+    <ClInclude Include="DirectoryTest.h" />
     <ClInclude Include="DrawC.h" />
     <ClInclude Include="Figure.h" />
     <ClInclude Include="FloatEllipse.h" />
@@ -209,6 +210,7 @@
     <ClCompile Include="csv.cpp" />
     <ClCompile Include="D2DRenderer+Draw.cpp" />
     <ClCompile Include="D2DRenderer.cpp" />
+    <ClCompile Include="DirectoryTest.cpp" />
     <ClCompile Include="DrawC.cpp" />
     <ClCompile Include="Figure.cpp" />
     <ClCompile Include="FloatEllipse.cpp" />

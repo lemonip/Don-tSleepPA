@@ -1,10 +1,11 @@
 #include "stdafx.h"
 #include "MouseControl.h"
 #include "TileObject.h"
+#include "TileObjectStorage.h"
 
 void MouseControl::Init()
 {
-	_mouseObj = new TileObject(TILEOBJECT::가스레인지, DIRECTION::FRONT);
+	_mouseObj = TileObjectStorage::GetInstance()->FindTileObject("가스레인지");
 }
 
 void MouseControl::Release()
@@ -23,49 +24,44 @@ void MouseControl::Update()
 		_mouseObj->_direction = (DIRECTION)(num + 1);
 	}
 
-	if (KEYMANAGER->isOnceKeyDown('1'))
-	{
-		_mouseObj = new TileObject(TILEOBJECT::가스레인지, DIRECTION::FRONT);
-	}
-
-	if (KEYMANAGER->isOnceKeyDown('2'))
-	{
-		_mouseObj = new TileObject(TILEOBJECT::배식대, DIRECTION::FRONT);
-	}
-
-	if (KEYMANAGER->isOnceKeyDown('3'))
-	{
-		_mouseObj = new TileObject(TILEOBJECT::벤치, DIRECTION::FRONT);
-	}
-
-	if (KEYMANAGER->isOnceKeyDown('4'))
+	if (KEYMANAGER->isOnceKeyDown('0'))
 	{
 		_mouseObj = NULL;
 	}
 
+	if (KEYMANAGER->isOnceKeyDown('1'))
+	{
+		_mouseObj = TileObjectStorage::GetInstance()->FindTileObject("가스레인지");
+	}
+
+	if (KEYMANAGER->isOnceKeyDown('2'))
+	{
+		_mouseObj = TileObjectStorage::GetInstance()->FindTileObject("배식대");
+	}
+
+	if (KEYMANAGER->isOnceKeyDown('3'))
+	{
+		_mouseObj = TileObjectStorage::GetInstance()->FindTileObject("벤치");
+	}
+
+	if (KEYMANAGER->isOnceKeyDown('4'))
+	{
+		_mouseObj = TileObjectStorage::GetInstance()->FindTileObject("wall0");
+	}
+
 	if (KEYMANAGER->isOnceKeyDown('5'))
 	{
-		_mouseObj = new TileObject(TILETERRAIN::ASPHALT);
+		_mouseObj = TileObjectStorage::GetInstance()->FindTileObject("wall1");
 	}
 
 	if (KEYMANAGER->isOnceKeyDown('6'))
 	{
-		_mouseObj = new TileObject(TILEOBJECT::변기, DIRECTION::FRONT);
+		_mouseObj = TileObjectStorage::GetInstance()->FindTileObject("사무실책상");
 	}
 
 	if (KEYMANAGER->isOnceKeyDown('7'))
 	{
-		_mouseObj = new TileObject(TILEOBJECT::사무실책상, DIRECTION::FRONT);
-	}
-
-	if (KEYMANAGER->isOnceKeyDown('8'))
-	{
-		_mouseObj = new TileObject(TILEWALL::WALL0);
-	}
-
-	if (KEYMANAGER->isOnceKeyDown('9'))
-	{
-		_mouseObj = new TileObject(TILEWALL::WALL1);
+		_mouseObj = TileObjectStorage::GetInstance()->FindTileObject("GRASS2");
 	}
 }
 
@@ -91,7 +87,17 @@ void MouseControl::Render()
 
 	if (_mouseObj)
 	{
-		if (_mouseObj->_type == OBJECTTYPE::OBJECT)
+		switch (_mouseObj->_type)
+		{
+		case OBJECTTYPE::TERRAIN:		case OBJECTTYPE::WALL:
+		{
+			//엔드 렉트를 렌더한다.
+			FloatRect dragRc = FloatRect(_endPoint.x, _endPoint.y, _endPoint.x + TILESIZE, _endPoint.y + TILESIZE);
+			dragRc = CAMERAMANAGER->GetVCamera()[0]->GetRelativePos(dragRc);
+			_D2DRenderer->FillRectangle(dragRc, D2DRenderer::DefaultBrush::Green);
+		}
+		break;
+		case OBJECTTYPE::OBJECT:
 		{
 			//오브젝트가 차지하는 인덱스 렉트를 렌더한다.
 			FloatRect objRc;
@@ -115,24 +121,23 @@ void MouseControl::Render()
 			_mouseObj->_img->SetAlpha(0.5f);
 			if (_mouseObj->_direction == DIRECTION::FRONT || _mouseObj->_direction == DIRECTION::BACK)
 			{
-				_mouseObj->_img->FrameRender(Vector2(_endPoint.x + (_mouseObj->_count.x * TILESIZE)/2,
+				_mouseObj->_img->FrameRender(Vector2(_endPoint.x + (_mouseObj->_count.x * TILESIZE) / 2,
 					TILESIZE / 2 + _endPoint.y + (_mouseObj->_count.y*TILESIZE) / 2 - _mouseObj->_img->GetFrameSize().y / 2)
 					, _mouseObj->_frame[(int)_mouseObj->_direction], 0, CAMERAMANAGER->GetVCamera()[0]);
 			}
 			else if (_mouseObj->_direction == DIRECTION::RIGHT || _mouseObj->_direction == DIRECTION::LEFT)
 			{
-				_mouseObj->_img->FrameRender(Vector2(_endPoint.x + (_mouseObj->_count.y * TILESIZE) - TILESIZE/2,
-					_endPoint.y + (_mouseObj->_count.x*TILESIZE) - _mouseObj->_img->GetFrameSize().y / 2 )
+				_mouseObj->_img->FrameRender(Vector2(_endPoint.x + (_mouseObj->_count.y * TILESIZE) - TILESIZE / 2,
+					_endPoint.y + (_mouseObj->_count.x*TILESIZE) - _mouseObj->_img->GetFrameSize().y / 2)
 					, _mouseObj->_frame[(int)_mouseObj->_direction], 0, CAMERAMANAGER->GetVCamera()[0]);
 			}
 		}
-		//else if (_mouseObj->_type != OBJECTTYPE::WALL)
-		//{
-		//	//엔드 렉트를 렌더한다.
-		//	FloatRect dragRc = FloatRect(_endPoint.x, _endPoint.y, _endPoint.x + TILESIZE, _endPoint.y + TILESIZE);
-		//	dragRc = CAMERAMANAGER->GetVCamera()[0]->GetRelativePos(dragRc);
-		//	_D2DRenderer->FillRectangle(dragRc, D2DRenderer::DefaultBrush::Blue);
-		//}
+		break;
+		case OBJECTTYPE::END:
+			break;
+		default:
+			break;
+		}
 	}
 }
 
@@ -140,14 +145,14 @@ void MouseControl::Control()
 {
 	if (!_mouseObj)	//마우스에 오브젝트가 없다면
 	{
-		_drag = MOUSEDRAG::NONE;
+		_drag = MOUSEDRAG::END;
 	}
 	else // 마우스 오브젝트의 타입에 따라 드래그를 결정
 	{
 		switch (_mouseObj->_type)
 		{
-		case OBJECTTYPE::NONE:
-			_drag = MOUSEDRAG::NONE;
+		case OBJECTTYPE::END:
+			_drag = MOUSEDRAG::END;
 			break;
 		case OBJECTTYPE::TERRAIN:
 			_drag = MOUSEDRAG::RECT;
@@ -160,7 +165,7 @@ void MouseControl::Control()
 			break;
 		}
 	}
-	
+
 	if (KEYMANAGER->isOnceKeyDown(VK_LBUTTON))
 	{
 		//선택한 시작점
@@ -169,8 +174,8 @@ void MouseControl::Control()
 
 		if (_startIndex.x < 0) _startIndex.x = 0;
 		if (_startIndex.y < 0) _startIndex.y = 0;
-		if (_startIndex.x >= TILEMAP->GetCount().x) _startIndex.x = TILEMAP->GetCount().x-1;
-		if (_startIndex.y >= TILEMAP->GetCount().y) _startIndex.y = TILEMAP->GetCount().y-1;
+		if (_startIndex.x >= _tileMap->GetCount().x) _startIndex.x = _tileMap->GetCount().x - 1;
+		if (_startIndex.y >= _tileMap->GetCount().y) _startIndex.y = _tileMap->GetCount().y - 1;
 
 		_startPoint.x = _startIndex.x * TILESIZE;
 		_startPoint.y = _startIndex.y * TILESIZE;
@@ -186,15 +191,15 @@ void MouseControl::Control()
 
 	if (_endIndex.x < 0) _endIndex.x = 0;
 	if (_endIndex.y < 0) _endIndex.y = 0;
-	if (_endIndex.x >= TILEMAP->GetCount().x) _endIndex.x = TILEMAP->GetCount().x-1;
-	if (_endIndex.y >= TILEMAP->GetCount().y) _endIndex.y = TILEMAP->GetCount().y-1;
+	if (_endIndex.x >= _tileMap->GetCount().x) _endIndex.x = _tileMap->GetCount().x - 1;
+	if (_endIndex.y >= _tileMap->GetCount().y) _endIndex.y = _tileMap->GetCount().y - 1;
 
 	_endPoint.x = _endIndex.x * TILESIZE;
 	_endPoint.y = _endIndex.y * TILESIZE;
 
 	if (KEYMANAGER->isStayKeyDown(VK_LBUTTON))
 	{
-		if (_drag == MOUSEDRAG::POINT) TILEMAP->BuildTileObject(Vector2(_endIndex.x, _endIndex.y), new TileObject(*_mouseObj));
+		if (_drag == MOUSEDRAG::POINT) _tileMap->BuildTileObject(Vector2(_endIndex.x, _endIndex.y), new TileObject(*_mouseObj));
 	}
 
 	if (KEYMANAGER->isOnceKeyUp(VK_LBUTTON))
@@ -235,31 +240,30 @@ void MouseControl::Control()
 		{
 			switch (_drag)
 			{
-				case MOUSEDRAG::NONE:
+			case MOUSEDRAG::END:
 				break;
-				case MOUSEDRAG::POINT:	//포인트는 Down에서 바로 그린다.
-					//TILEMAP->BuildTileObject(Vector2(_endIndex.x, _endIndex.y), new TileObject(*_mouseObj));
+			case MOUSEDRAG::POINT:	//포인트는 Down에서 바로 그린다.
+				//TILEMAP->BuildTileObject(Vector2(_endIndex.x, _endIndex.y), new TileObject(*_mouseObj));
 				break;
-				case MOUSEDRAG::LINE:
+			case MOUSEDRAG::LINE:
+			{
+				for (int i = 0; i < _vSelectIndex.size(); i++)
 				{
-					for (int i = 0; i < _vSelectIndex.size(); i++)
-					{
-						if (_vSelectIndex[i].x > _vSelectIndex[0].x && _vSelectIndex[i].x < _vSelectIndex[_vSelectIndex.size()-1].x
+					if (_vSelectIndex[i].x > _vSelectIndex[0].x && _vSelectIndex[i].x < _vSelectIndex[_vSelectIndex.size() - 1].x
 						&&_vSelectIndex[i].y != _vSelectIndex[0].y&& _vSelectIndex[i].y < _vSelectIndex[_vSelectIndex.size() - 1].y) continue;
-						TILEMAP->BuildTileObject(Vector2(_vSelectIndex[i].x, _vSelectIndex[i].y), new TileObject(*_mouseObj));
-					}
+					_tileMap->BuildTileObject(Vector2(_vSelectIndex[i].x, _vSelectIndex[i].y), new TileObject(*_mouseObj));
 				}
-				break;
-				case MOUSEDRAG::RECT:
+			}
+			break;
+			case MOUSEDRAG::RECT:
+			{
+				for (int i = 0; i < _vSelectIndex.size(); i++)
 				{
-					for (int i = 0; i < _vSelectIndex.size(); i++)
-					{
-						TILEMAP->BuildTileObject(Vector2(_vSelectIndex[i].x, _vSelectIndex[i].y), new TileObject(*_mouseObj));
-					}
+					_tileMap->BuildTileObject(Vector2(_vSelectIndex[i].x, _vSelectIndex[i].y), new TileObject(*_mouseObj));
 				}
-				break;
-
-			}			
+			}
+			break;
+			}
 		}
 	}
 }

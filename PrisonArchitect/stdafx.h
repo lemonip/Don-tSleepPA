@@ -38,7 +38,6 @@ namespace Direction
 		RightBottom = Right | Bottom,
 		End = 0
 	};
-
 }
 
 
@@ -93,7 +92,7 @@ using namespace Figure;
 //#define KEYANIMANAGER keyAniManager::getSingleton()
 #define TXTDATA txtData::getSingleton()
 #define OBJECTMANAGER ObjectManager::getSingleton()
-#define TILEMAP TileMap::GetInstance()
+//#define TILEMAP TileMap::GetInstance()
 
 #define SAFE_DELETE(p)		{if(p) {delete(p); (p) = NULL;}}
 #define SAFE_RELEASE(p)		{if(p) {(p)->release(); (p) = NULL;}}

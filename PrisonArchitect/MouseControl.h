@@ -4,8 +4,16 @@ enum class OBJECTTYPE;
 enum class MOUSEDRAG;
 enum class MOUSESTATE;
 
+class TileMap;
+
 class MouseControl
 {
+public:
+	static MouseControl* GetInstance()
+	{
+		static MouseControl istance;
+		return &istance;
+	}
 public:
 
 	//마우스 관련 변수
@@ -25,8 +33,8 @@ public:
 	vector<Vector2> _vSelectIndex;		//선택 타일 인덱스
 	TileObject* _mouseObj;				//마우스 타일 오브젝트
 	TileArea* _mouseArea;				//마우스 지역
+	TileMap* _tileMap;					//타일 맵
 
-	//TileMap* _tileMap;
 public:
 
 	void Init();
@@ -35,7 +43,7 @@ public:
 	void Render();
 	void Control();
 
-	//void LinkTileMap(TileMap* tileMap) { _tileMap = tileMap; }
+	void LinkTileMap(TileMap* tileMap) { _tileMap = tileMap; }
 
 };
 
