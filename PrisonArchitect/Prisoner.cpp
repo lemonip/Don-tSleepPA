@@ -1,8 +1,8 @@
 #include "stdafx.h"
 #include "Prisoner.h"
 
-//초기화
-HRESULT Prisoner::init(int bodNum, int headNum)
+//생성자
+Prisoner::Prisoner(int bodNum, int headNum)
 {
 	_transform = AddComponent<TransformC>();
 	_transform->SetPosition(Vector2(WINSIZEX / 2, WINSIZEY / 2));
@@ -20,40 +20,47 @@ HRESULT Prisoner::init(int bodNum, int headNum)
 
 	//파츠 초기화
 	{
-	//몸통 초기화
-	char bodImgName[20];
-	sprintf_s(bodImgName, "bod%d", bodNum);
-	_info.torso = CreateObject();
-	_info.torso->AddComponent<DrawC>();
-	_info.torso->GetComponent<DrawC>()->_img = IMAGEMANAGER->FindImage(bodImgName);
-	_info.torso->GetTransform()->SetPosition(_transform->GetPosition());
+		//몸통 초기화
+		char bodImgName[20];
+		sprintf_s(bodImgName, "bod%d", bodNum);
+		_torso = CreateObject();
+		_torso->AddComponent<DrawC>();
+		_torso->GetComponent<DrawC>()->_img = IMAGEMANAGER->FindImage(bodImgName);
+		_torso->GetTransform()->SetPosition(_transform->GetPosition());
 
-	//머리 초기화
-	char headImgName[20];
-	sprintf_s(headImgName, "head%d", headNum);
-	_info.head = CreateObject();
-	_info.head->AddComponent<DrawC>();
-	_info.head->GetComponent<DrawC>()->_img = IMAGEMANAGER->FindImage(headImgName);
+		//머리 초기화
+		char headImgName[20];
+		sprintf_s(headImgName, "head%d", headNum);
+		_head = CreateObject();
+		_head->AddComponent<DrawC>();
+		_head->GetComponent<DrawC>()->_img = IMAGEMANAGER->FindImage(headImgName);
 
-	_info.head->GetTransform()->SetPosition(Vector2( _transform->GetPosition().x, _transform->GetPosition().y - headOffset ));
+		_head->GetTransform()->SetPosition(Vector2(_transform->GetPosition().x, _transform->GetPosition().y - HEADOFFSET));
 
-	//손초기화
-	_info.rightHand = CreateObject();
-	_info.leftHand = CreateObject();
-	_info.rightHand->AddComponent<DrawC>();
-	_info.rightHand->GetComponent<DrawC>()->_img = IMAGEMANAGER->FindImage("hand");
-	_info.leftHand->AddComponent<DrawC>();
-	_info.leftHand->GetComponent<DrawC>()->_img = IMAGEMANAGER->FindImage("hand");
+		//손초기화
+		_rightHand = CreateObject();
+		_leftHand = CreateObject();
+		_rightHand->AddComponent<DrawC>();
+		_rightHand->GetComponent<DrawC>()->_img = IMAGEMANAGER->FindImage("hand");
+		_leftHand->AddComponent<DrawC>();
+		_leftHand->GetComponent<DrawC>()->_img = IMAGEMANAGER->FindImage("hand");
 
 
-	_info.rightHand->GetTransform()->SetPosition
-	(Vector2( _transform->GetPosition().x - handOffsetX, _transform->GetPosition().y - handOffsetY ));
+		_rightHand->GetTransform()->SetPosition
+		(Vector2(_transform->GetPosition().x - HANDOFFSETX, _transform->GetPosition().y - HANDOFFSETY));
 
-	_info.leftHand->GetTransform()->SetPosition
-	(Vector2( _transform->GetPosition().x + handOffsetX, _transform->GetPosition().y - handOffsetY ));
-	
+		_leftHand->GetTransform()->SetPosition
+		(Vector2(_transform->GetPosition().x + HANDOFFSETX, _transform->GetPosition().y - HANDOFFSETY));
+
 	}
+}
+//소멸자
+Prisoner::~Prisoner()
+{
+}
 
+HRESULT Prisoner::init()
+{
 	return S_OK;
 }
 
@@ -76,62 +83,21 @@ void Prisoner::update()
 void Prisoner::render()
 {
 	//각 부위별 렌더
-	_info.torso->GetComponent<DrawC>()->_img->FrameRender
-	(Vector2(_info.torso->GetTransform()->GetPosition()), _info.frameX, 0, CAMERAMANAGER->GetVCamera()[0]);
+	_torso->GetComponent<DrawC>()->_img->FrameRender
+	(Vector2(_torso->GetTransform()->GetPosition()), _info.frameX, 0, CAMERAMANAGER->GetVCamera()[0]);
 
-	_info.head->GetComponent<DrawC>()->_img->FrameRender
-	(Vector2(_info.head->GetTransform()->GetPosition()), _info.frameX, 0, CAMERAMANAGER->GetVCamera()[0]);
+	_head->GetComponent<DrawC>()->_img->FrameRender
+	(Vector2(_head->GetTransform()->GetPosition()), _info.frameX, 0, CAMERAMANAGER->GetVCamera()[0]);
 
-	_info.rightHand->GetComponent<DrawC>()->_img->Render
-	(Vector2(_info.rightHand->GetTransform()->GetPosition()), CAMERAMANAGER->GetVCamera()[0]);
+	_rightHand->GetComponent<DrawC>()->_img->Render
+	(Vector2(_rightHand->GetTransform()->GetPosition()), CAMERAMANAGER->GetVCamera()[0]);
 
-	_info.leftHand->GetComponent<DrawC>()->_img->Render
-	(Vector2(_info.leftHand->GetTransform()->GetPosition()), CAMERAMANAGER->GetVCamera()[0]);
+	_leftHand->GetComponent<DrawC>()->_img->Render
+	(Vector2(_leftHand->GetTransform()->GetPosition()), CAMERAMANAGER->GetVCamera()[0]);
 }
 
 
-
-void Prisoner::ChangeFrameX()
-{
-	//상태와 방향에 따른 프레임x 변경
-	if (_info.isSleep)_info.frameX = 3;
-	else
-	{
-		switch (_info.dest)
-		{
-		case DIRECTION::RIGHT:
-		case DIRECTION::LEFT:
-			_info.frameX = 2;
-			break;
-		case DIRECTION::FRONT: _info.frameX = 0;break;
-		case DIRECTION::BACK: _info.frameX = 1; break;
-		}
-	}
-}
-
-//임시 이동함수
-void Prisoner::MovePos(float x, float y)
-{
-	//중점이동
-	_transform->SetPosition(Vector2
-	(_transform->GetPosition().x + x, _transform->GetPosition().y + y));
-	
-	//몸통 이동
-	_info.torso->GetTransform()->SetPosition(_transform->GetPosition());
-
-	//머리 이동
-	_info.head->GetTransform()->SetPosition(Vector2(_transform->GetPosition().x, _transform->GetPosition().y - headOffset));
-
-	//손이동
-	_info.rightHand->GetTransform()->SetPosition
-	(Vector2(_transform->GetPosition().x - handOffsetX, _transform->GetPosition().y - handOffsetY));
-
-	_info.leftHand->GetTransform()->SetPosition
-	(Vector2(_transform->GetPosition().x + handOffsetX, _transform->GetPosition().y - handOffsetY));
-
-}
-
-HRESULT Staff::init(ROLE role)
+Staff::Staff(ROLE role)
 {
 	_transform = AddComponent<TransformC>();
 	_transform->SetPosition(Vector2(WINSIZEX / 2, WINSIZEY / 2));
@@ -146,7 +112,7 @@ HRESULT Staff::init(ROLE role)
 	_info.moveSpeed = 4.f * _gameSpeed;//*전체속도 를 곱해줘서 이동속도와 액션속도가 바뀔거같음. 
 	_info.actSpeed = 1.f * _gameSpeed;//*전체속도 액션속도로 팔움직이고 그런거 하지않을까.. 항상 전체속도 곱해주는것 매우 중요!!
 
-	_info.role = role;
+	role = role;
 	//파츠 초기화
 	{
 		//몸 초기화
@@ -154,28 +120,36 @@ HRESULT Staff::init(ROLE role)
 		char bodImgName[20];
 		sprintf_s(bodImgName, "bod%d", role);
 
-		_info.torso = CreateObject();
-		_info.torso->AddComponent<DrawC>();
-		_info.torso->GetComponent<DrawC>()->_img = IMAGEMANAGER->FindImage(bodImgName);
-		_info.torso->GetTransform()->SetPosition(_transform->GetPosition());
+		_torso = CreateObject();
+		_torso->AddComponent<DrawC>();
+		_torso->GetComponent<DrawC>()->_img = IMAGEMANAGER->FindImage(bodImgName);
+		_torso->GetTransform()->SetPosition(_transform->GetPosition());
 
 		//손초기화
-		_info.rightHand = CreateObject();
-		_info.leftHand = CreateObject();
-		_info.rightHand->AddComponent<DrawC>();
-		_info.rightHand->GetComponent<DrawC>()->_img = IMAGEMANAGER->FindImage("hand");
-		_info.leftHand->AddComponent<DrawC>();
-		_info.leftHand->GetComponent<DrawC>()->_img = IMAGEMANAGER->FindImage("hand");
+		_rightHand = CreateObject();
+		_leftHand = CreateObject();
+		_rightHand->AddComponent<DrawC>();
+		_rightHand->GetComponent<DrawC>()->_img = IMAGEMANAGER->FindImage("hand");
+		_leftHand->AddComponent<DrawC>();
+		_leftHand->GetComponent<DrawC>()->_img = IMAGEMANAGER->FindImage("hand");
 
 
-		_info.rightHand->GetTransform()->SetPosition
-		(Vector2(_transform->GetPosition().x - handOffsetX, _transform->GetPosition().y - handOffsetY));
+		_rightHand->GetTransform()->SetPosition
+		(Vector2(_transform->GetPosition().x - HANDOFFSETX, _transform->GetPosition().y - HANDOFFSETY));
 
-		_info.leftHand->GetTransform()->SetPosition
-		(Vector2(_transform->GetPosition().x + handOffsetX, _transform->GetPosition().y - handOffsetY));
+		_leftHand->GetTransform()->SetPosition
+		(Vector2(_transform->GetPosition().x + HANDOFFSETX, _transform->GetPosition().y - HANDOFFSETY));
 
 	}
 
+}
+
+Staff::~Staff()
+{
+}
+
+HRESULT Staff::init()
+{
 	return S_OK;
 }
 
@@ -189,4 +163,60 @@ void Staff::update()
 
 void Staff::render()
 {
+}
+
+
+HRESULT People::init()
+{
+	return S_OK;
+}
+
+void People::release()
+{
+}
+
+void People::update()
+{
+}
+
+void People::render()
+{
+}
+
+void People::ChangeFrameX()
+{
+	//상태와 방향에 따른 프레임x 변경
+	if (_info.isSleep)_info.frameX = 3;
+	else
+	{
+		switch (_info.dest)
+		{
+		case DIRECTION::RIGHT:
+		case DIRECTION::LEFT:
+			_info.frameX = 2;
+			break;
+		case DIRECTION::FRONT: _info.frameX = 0; break;
+		case DIRECTION::BACK: _info.frameX = 1; break;
+		}
+	}
+}
+
+void People::MovePos(float x, float y)
+{
+	//중점이동
+	_transform->SetPosition(Vector2
+	(_transform->GetPosition().x + x, _transform->GetPosition().y + y));
+
+	//몸통 이동
+	_torso->GetTransform()->SetPosition(_transform->GetPosition());
+
+	//머리 이동
+	//_head->GetTransform()->SetPosition(Vector2(_transform->GetPosition().x, _transform->GetPosition().y - HEADOFFSET));
+
+	//손이동
+	_rightHand->GetTransform()->SetPosition
+	(Vector2(_transform->GetPosition().x - HANDOFFSETX, _transform->GetPosition().y - HANDOFFSETY));
+
+	_leftHand->GetTransform()->SetPosition
+	(Vector2(_transform->GetPosition().x + HANDOFFSETX, _transform->GetPosition().y - HANDOFFSETY));
 }
