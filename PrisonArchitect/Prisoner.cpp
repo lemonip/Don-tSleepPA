@@ -69,7 +69,7 @@ void Prisoner::update()
 	if (KEYMANAGER->isOnceKeyDown(VK_UP))_info.dest = DIRECTION::BACK;
 	if (KEYMANAGER->isOnceKeyDown(VK_DOWN))_info.dest = DIRECTION::FRONT;
 	//이동
-	if (KEYMANAGER->isOnceKeyDown(VK_RIGHT))MovePos(3, 0);
+	if (KEYMANAGER->isStayKeyDown(VK_RIGHT))MovePos(3, 0);
 
 }
 
@@ -129,4 +129,64 @@ void Prisoner::MovePos(float x, float y)
 	_info.leftHand->GetTransform()->SetPosition
 	(Vector2(_transform->GetPosition().x + handOffsetX, _transform->GetPosition().y - handOffsetY));
 
+}
+
+HRESULT Staff::init(ROLE role)
+{
+	_transform = AddComponent<TransformC>();
+	_transform->SetPosition(Vector2(WINSIZEX / 2, WINSIZEY / 2));
+
+	/*
+	초기화 위치 보정할 예정!
+	_info.x = _ptMouse.x;
+	_info.y = _ptMouse.y;*/
+
+	_info.dest = DIRECTION::FRONT;
+
+	_info.moveSpeed = 4.f * _gameSpeed;//*전체속도 를 곱해줘서 이동속도와 액션속도가 바뀔거같음. 
+	_info.actSpeed = 1.f * _gameSpeed;//*전체속도 액션속도로 팔움직이고 그런거 하지않을까.. 항상 전체속도 곱해주는것 매우 중요!!
+
+	_info.role = role;
+	//파츠 초기화
+	{
+		//몸 초기화
+
+		char bodImgName[20];
+		sprintf_s(bodImgName, "bod%d", role);
+
+		_info.torso = CreateObject();
+		_info.torso->AddComponent<DrawC>();
+		_info.torso->GetComponent<DrawC>()->_img = IMAGEMANAGER->FindImage(bodImgName);
+		_info.torso->GetTransform()->SetPosition(_transform->GetPosition());
+
+		//손초기화
+		_info.rightHand = CreateObject();
+		_info.leftHand = CreateObject();
+		_info.rightHand->AddComponent<DrawC>();
+		_info.rightHand->GetComponent<DrawC>()->_img = IMAGEMANAGER->FindImage("hand");
+		_info.leftHand->AddComponent<DrawC>();
+		_info.leftHand->GetComponent<DrawC>()->_img = IMAGEMANAGER->FindImage("hand");
+
+
+		_info.rightHand->GetTransform()->SetPosition
+		(Vector2(_transform->GetPosition().x - handOffsetX, _transform->GetPosition().y - handOffsetY));
+
+		_info.leftHand->GetTransform()->SetPosition
+		(Vector2(_transform->GetPosition().x + handOffsetX, _transform->GetPosition().y - handOffsetY));
+
+	}
+
+	return S_OK;
+}
+
+void Staff::release()
+{
+}
+
+void Staff::update()
+{
+}
+
+void Staff::render()
+{
 }

@@ -219,14 +219,14 @@
     <ClInclude Include="TileArea.h">
       <Filter>playGround\TileMap</Filter>
     </ClInclude>
-    <ClInclude Include="People.h">
-      <Filter>playGround\People</Filter>
-    </ClInclude>
     <ClInclude Include="Prisoner.h">
       <Filter>playGround\People</Filter>
     </ClInclude>
     <ClInclude Include="TestScene.h">
       <Filter>playGround\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="PeopleUtilC.h">
+      <Filter>2DGameFramework\ComponentPattern\Component</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -365,14 +365,14 @@
     <ClCompile Include="TileArea.cpp">
       <Filter>playGround\TileMap</Filter>
     </ClCompile>
-    <ClCompile Include="People.cpp">
-      <Filter>playGround\People</Filter>
-    </ClCompile>
     <ClCompile Include="Prisoner.cpp">
       <Filter>playGround\People</Filter>
     </ClCompile>
     <ClCompile Include="TestScene.cpp">
       <Filter>playGround\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="PeopleUtilC.cpp">
+      <Filter>2DGameFramework\ComponentPattern\Component</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

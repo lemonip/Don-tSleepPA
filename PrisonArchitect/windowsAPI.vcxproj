@@ -172,7 +172,7 @@
     <ClInclude Include="MapToolScene.h" />
     <ClInclude Include="Math.h" />
     <ClInclude Include="MouseControl.h" />
-    <ClInclude Include="People.h" />
+    <ClInclude Include="PeopleUtilC.h" />
     <ClInclude Include="playGround.h" />
     <ClInclude Include="Prisoner.h" />
     <ClInclude Include="randomFunction.h" />
@@ -225,7 +225,7 @@
     <ClCompile Include="MapToolScene.cpp" />
     <ClCompile Include="Math.cpp" />
     <ClCompile Include="MouseControl.cpp" />
-    <ClCompile Include="People.cpp" />
+    <ClCompile Include="PeopleUtilC.cpp" />
     <ClCompile Include="playGround+AddSource.cpp" />
     <ClCompile Include="playGround.cpp" />
     <ClCompile Include="Prisoner.cpp" />
