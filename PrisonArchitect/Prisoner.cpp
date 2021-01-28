@@ -6,52 +6,39 @@ Prisoner::Prisoner(int bodNum, int headNum)
 {
 	_transform = AddComponent<TransformC>();
 	_transform->SetPosition(Vector2(WINSIZEX / 2, WINSIZEY / 2));
-
-	/*
-	초기화 위치 보정할 예정!
-	_info.x = _ptMouse.x;
-	_info.y = _ptMouse.y;*/
-
-	_info.dest = DIRECTION::FRONT;
+	_transform->SetDirection(DIRECTION::FRONT);
 
 	//아직은 전체속도 없음 
-	_info.moveSpeed = 4.f * _gameSpeed;//*전체속도 를 곱해줘서 이동속도와 액션속도가 바뀔거같음. 
-	_info.actSpeed = 1.f * _gameSpeed;//*전체속도 액션속도로 팔움직이고 그런거 하지않을까.. 항상 전체속도 곱해주는것 매우 중요!!
+	_info.moveSpeed = 4.f * _gameSpeed;	//*전체속도 를 곱해줘서 이동속도와 액션속도가 바뀔거같음. 
+	_info.actSpeed = 1.f * _gameSpeed;	//*전체속도 액션속도로 팔움직이고 그런거 하지않을까.. 항상 전체속도 곱해주는것 매우 중요!!
 
 	//파츠 초기화
 	{
 		//몸통 초기화
 		char bodImgName[20];
 		sprintf_s(bodImgName, "bod%d", bodNum);
-		_torso = CreateObject();
-		_torso->AddComponent<DrawC>();
-		_torso->GetComponent<DrawC>()->_img = IMAGEMANAGER->FindImage(bodImgName);
+		_torso = CreateObject(this);
+		_torso->AddComponent<DrawC>()->_img = IMAGEMANAGER->FindImage(bodImgName);
 		_torso->GetTransform()->SetPosition(_transform->GetPosition());
 
 		//머리 초기화
 		char headImgName[20];
 		sprintf_s(headImgName, "head%d", headNum);
-		_head = CreateObject();
-		_head->AddComponent<DrawC>();
-		_head->GetComponent<DrawC>()->_img = IMAGEMANAGER->FindImage(headImgName);
-
+		_head = CreateObject(this);
+		_head->AddComponent<DrawC>()->_img = IMAGEMANAGER->FindImage(headImgName);
 		_head->GetTransform()->SetPosition(Vector2(_transform->GetPosition().x, _transform->GetPosition().y - HEADOFFSET));
 
-		//손초기화
-		_rightHand = CreateObject();
-		_leftHand = CreateObject();
-		_rightHand->AddComponent<DrawC>();
-		_rightHand->GetComponent<DrawC>()->_img = IMAGEMANAGER->FindImage("hand");
-		_leftHand->AddComponent<DrawC>();
-		_leftHand->GetComponent<DrawC>()->_img = IMAGEMANAGER->FindImage("hand");
-
-
+		//오른손 초기화
+		_rightHand = CreateObject(this);
+		_rightHand->AddComponent<DrawC>()->_img = IMAGEMANAGER->FindImage("hand");
 		_rightHand->GetTransform()->SetPosition
 		(Vector2(_transform->GetPosition().x - HANDOFFSETX, _transform->GetPosition().y - HANDOFFSETY));
 
+		//왼손 초기화
+		_leftHand = CreateObject(this);
+		_leftHand->AddComponent<DrawC>()->_img = IMAGEMANAGER->FindImage("hand");
 		_leftHand->GetTransform()->SetPosition
 		(Vector2(_transform->GetPosition().x + HANDOFFSETX, _transform->GetPosition().y - HANDOFFSETY));
-
 	}
 }
 //소멸자
@@ -70,14 +57,12 @@ void Prisoner::release()
 
 void Prisoner::update()
 {
-	ChangeFrameX();
-	//방향키에따라 방향 바꾸게 해봤음(테스트로..오른쪽은 뒤집기렌더 안되서 눈으로볼땐 차이없음)
-	if (KEYMANAGER->isOnceKeyDown(VK_LEFT))_info.dest = DIRECTION::LEFT;
-	if (KEYMANAGER->isOnceKeyDown(VK_UP))_info.dest = DIRECTION::BACK;
-	if (KEYMANAGER->isOnceKeyDown(VK_DOWN))_info.dest = DIRECTION::FRONT;
-	//이동
-	if (KEYMANAGER->isStayKeyDown(VK_RIGHT))MovePos(3, 0);
+	if (KEYMANAGER->isStayKeyDown(VK_RIGHT)) _transform->Translate(Vector2(_info.moveSpeed, 0.0f));
+	if (KEYMANAGER->isStayKeyDown(VK_LEFT))	 _transform->Translate(Vector2(-_info.moveSpeed, 0.0f));
+	if (KEYMANAGER->isStayKeyDown(VK_DOWN))	 _transform->Translate(Vector2(0.0f, _info.moveSpeed));
+	if (KEYMANAGER->isStayKeyDown(VK_UP))	 _transform->Translate(Vector2(0.0f, -_info.moveSpeed));
 
+	ChangeFrameX();
 }
 
 void Prisoner::render()
@@ -101,13 +86,7 @@ Staff::Staff(PEOPLEROLE role)
 {
 	_transform = AddComponent<TransformC>();
 	_transform->SetPosition(Vector2(WINSIZEX / 2, WINSIZEY / 2));
-
-	/*
-	초기화 위치 보정할 예정!
-	_info.x = _ptMouse.x;
-	_info.y = _ptMouse.y;*/
-
-	_info.dest = DIRECTION::FRONT;
+	_transform->SetDirection(DIRECTION::FRONT);
 
 	_info.moveSpeed = 4.f * _gameSpeed;//*전체속도 를 곱해줘서 이동속도와 액션속도가 바뀔거같음. 
 	_info.actSpeed = 1.f * _gameSpeed;//*전체속도 액션속도로 팔움직이고 그런거 하지않을까.. 항상 전체속도 곱해주는것 매우 중요!!
@@ -166,6 +145,10 @@ void Staff::render()
 }
 
 
+People::People()
+{
+}
+
 HRESULT People::init()
 {
 	return S_OK;
@@ -189,14 +172,12 @@ void People::ChangeFrameX()
 	if (_info.isSleep)_info.frameX = 3;
 	else
 	{
-		switch (_info.dest)
+		switch (_transform->GetDirection())
 		{
-		case DIRECTION::RIGHT:
-		case DIRECTION::LEFT:
-			_info.frameX = 2;
-			break;
-		case DIRECTION::FRONT: _info.frameX = 0; break;
-		case DIRECTION::BACK: _info.frameX = 1; break;
+		case DIRECTION::RIGHT: case DIRECTION::LEFT:
+								_info.frameX = 2; break;
+		case DIRECTION::FRONT:	_info.frameX = 0; break;
+		case DIRECTION::BACK:	_info.frameX = 1; break;
 		}
 	}
 }

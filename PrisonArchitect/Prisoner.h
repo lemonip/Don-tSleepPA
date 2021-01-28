@@ -13,7 +13,6 @@
 struct tagPeopleInfo
 {
 public:
-	DIRECTION dest;		 //방향 (없어질예정)
 	int frameX;			 //프레임x
 	float moveSpeed;	 //이동속도 
 	float actSpeed;		 //행동속도
@@ -30,7 +29,11 @@ protected:
 	GameObject* _leftHand;
 	//정보
 	tagPeopleInfo _info;
+
 public:
+	People();
+	~People() {}
+
 	virtual HRESULT init();
 	virtual void release();
 	virtual void update();

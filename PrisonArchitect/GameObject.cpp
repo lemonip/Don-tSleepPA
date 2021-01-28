@@ -11,6 +11,10 @@ GameObject * GameObject::CreateObject(GameObject * parent)
 {
 	GameObject* object = new GameObject();
 	object->_transform = object->AddComponent<TransformC>();
+
+	if (parent == NULL) {}
+	else object->SetParent(parent);
+
 	return object;
 }
 

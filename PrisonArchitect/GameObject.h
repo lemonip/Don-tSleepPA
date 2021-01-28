@@ -82,12 +82,11 @@ public:
 
 
 	
-
 	/* ==================================================
 		╟тем
 	================================================== */
 	GameObject* GetParent() { return _parent; };
-	vector<GameObject*> GetChildren() { return _vChild; };
+	vector<GameObject*> GetvChild() { return _vChild; };
 	//GameObject* GetChildByName(string name);
 
 	bool GetActive() { return _isActive; }

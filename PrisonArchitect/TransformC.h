@@ -4,8 +4,7 @@
 class TransformC : public Component
 {
 private:
-	Vector2 _pos;				//위치
-	Vector2 _prePos;			//이전 위치
+	Vector2 _pos;			//위치
 
 	DIRECTION _direction;	//방향
 
@@ -21,11 +20,10 @@ public:
 
 	//게터
 	Vector2 GetPosition() { return _pos; }
+	DIRECTION GetDirection() { return _direction; }
 
 	//세터
 	void SetPosition(Vector2 pos);
-	void SetWorldPosition(Vector2 pos);
-
 	void SetDirection(DIRECTION direction) { _direction = direction; }
 
 	//함수
@@ -33,7 +31,6 @@ public:
 	virtual void Update();
 
 	void Translate(Vector2 delta);
-	void WorldTranslate(Vector2 delta);
 
 };
 

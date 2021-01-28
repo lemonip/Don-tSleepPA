@@ -3,42 +3,22 @@
 
 void TransformC::SetPosition(Vector2 pos)
 {
-	Vector2 differ;
-	differ = _prePos - _pos;
-
 	_pos = pos;
-
-	if (differ.x > 0)	SetDirection(DIRECTION::LEFT);
-	if(differ.x < 0)	SetDirection(DIRECTION::RIGHT);
-	if (differ.y > 0)	SetDirection(DIRECTION::BACK);
-	if (differ.y < 0)	SetDirection(DIRECTION::FRONT);
-
-	_prePos = _pos;
-}
-
-void TransformC::SetWorldPosition(Vector2 pos)
-{
-	GameObject* parent = _object->GetParent();
-	Vector2 minusPosition;
-
-	while (parent != nullptr)
-	{
-		minusPosition.x += parent->GetTransform()->GetPosition().x;
-		minusPosition.y += parent->GetTransform()->GetPosition().y;
-		parent = parent->GetParent();
-	}
-
-	SetPosition(_pos - minusPosition);
 }
 
 void TransformC::Translate(Vector2 delta)
 {
-	SetPosition(_pos + delta);
-}
+	//자식 이동
+	for (GameObject* c : _object->GetvChild())
+		c->GetTransform()->Translate(delta);
 
-void TransformC::WorldTranslate(Vector2 delta)
-{
-	SetWorldPosition(_pos + delta);
+	//본인 이동
+	SetPosition(_pos + delta);
+
+	if (delta.x < 0)	SetDirection(DIRECTION::LEFT);
+	if (delta.x > 0)	SetDirection(DIRECTION::RIGHT);
+	if (delta.y < 0)	SetDirection(DIRECTION::BACK);
+	if (delta.y > 0)	SetDirection(DIRECTION::FRONT);
 }
 
 void TransformC::Init()
