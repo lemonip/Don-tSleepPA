@@ -5,7 +5,6 @@
 
 GameObject::GameObject()
 {
-
 }
 
 GameObject * GameObject::CreateObject(GameObject * parent)
@@ -40,6 +39,23 @@ void GameObject::RemoveChild(GameObject * child)
 
 void GameObject::RemoveComponent(Component * component)
 {
+	for (auto itr = _vComponent.begin(); itr != _vComponent.end(); itr++)
+	{
+		if (*itr == component)
+		{
+			_vComponent.erase(itr);
+			component->Release();
+			return;
+		}
+	}
+}
+
+void GameObject::SetActive(bool active)
+{
+	_isActive = active;
+
+	for (GameObject* c : _vChild)
+		c->SetActive(active);
 }
 
 void GameObject::Init()
@@ -47,21 +63,28 @@ void GameObject::Init()
 	for (GameObject* c : _vChild)
 		c->Init();
 
-
 	for (Component* c : _vComponent)
 		c->Init();
-
 }
 
 void GameObject::Release()
 {
+	if (_parent) _parent->RemoveChild(this);
+
+	for (GameObject* c : _vChild)
+		c->Release();
+
+	for (int i = _vComponent.size() - 1; i >= 0; i--)
+		_vComponent[i]->Release();
+	delete this;
 }
 
 void GameObject::Update()
 {
+	if (!_isActive) return;
+
 	for (GameObject* c : _vChild)
 		c->Update();
-
 
 	for (Component* c : _vComponent)
 		c->Update();
@@ -69,21 +92,11 @@ void GameObject::Update()
 
 void GameObject::Render()
 {
+	if (!_isActive) return;
+
 	for (GameObject* c : _vChild)
 		c->Render();
 
-
 	for (Component* c : _vComponent)
 		c->Render();
-}
-
-void GameObject::Render(HDC hdc)
-{
-
-	for (GameObject* c : _vChild)
-		c->Render(hdc);
-
-
-	for (Component* c : _vComponent)
-		c->Render(hdc);
 }
