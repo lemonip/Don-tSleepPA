@@ -201,9 +201,6 @@
     <ClInclude Include="MapToolScene.h">
       <Filter>playGround\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="ComponentTest.h">
-      <Filter>playGround\Scene</Filter>
-    </ClInclude>
     <ClInclude Include="SelectScene.h">
       <Filter>playGround\Scene</Filter>
     </ClInclude>
@@ -342,9 +339,6 @@
       <Filter>playGround\Scene</Filter>
     </ClCompile>
     <ClCompile Include="MapToolScene.cpp">
-      <Filter>playGround\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="ComponentTest.cpp">
       <Filter>playGround\Scene</Filter>
     </ClCompile>
     <ClCompile Include="SelectScene.cpp">

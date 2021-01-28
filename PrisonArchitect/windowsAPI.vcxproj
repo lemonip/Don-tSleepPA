@@ -154,7 +154,6 @@
     <ClInclude Include="CameraManager.h" />
     <ClInclude Include="commonMacroFunction.h" />
     <ClInclude Include="Component.h" />
-    <ClInclude Include="ComponentTest.h" />
     <ClInclude Include="csv.h" />
     <ClInclude Include="D2DRenderer.h" />
     <ClInclude Include="DirectoryTest.h" />
@@ -206,7 +205,6 @@
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="CameraManager.cpp" />
     <ClCompile Include="Component.cpp" />
-    <ClCompile Include="ComponentTest.cpp" />
     <ClCompile Include="csv.cpp" />
     <ClCompile Include="D2DRenderer+Draw.cpp" />
     <ClCompile Include="D2DRenderer.cpp" />
