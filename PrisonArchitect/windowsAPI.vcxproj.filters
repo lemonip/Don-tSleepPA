@@ -61,6 +61,9 @@
     <Filter Include="playGround\Scene">
       <UniqueIdentifier>{91f41925-27c9-423b-9a46-e1a5e48e9e93}</UniqueIdentifier>
     </Filter>
+    <Filter Include="playGround\People">
+      <UniqueIdentifier>{bb20878d-9b31-4d63-b9e6-ae316e223d6e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -159,6 +162,9 @@
     <ClInclude Include="TileObject.h">
       <Filter>playGround\TileMap</Filter>
     </ClInclude>
+    <ClInclude Include="MouseControl.h">
+      <Filter>playGround\TileMap</Filter>
+    </ClInclude>
     <ClInclude Include="AllEnums.h">
       <Filter>playGround</Filter>
     </ClInclude>
@@ -201,6 +207,9 @@
     <ClInclude Include="MapToolScene.h">
       <Filter>playGround\Scene</Filter>
     </ClInclude>
+    <ClInclude Include="ComponentTest.h">
+      <Filter>playGround\Scene</Filter>
+    </ClInclude>
     <ClInclude Include="SelectScene.h">
       <Filter>playGround\Scene</Filter>
     </ClInclude>
@@ -210,14 +219,14 @@
     <ClInclude Include="TileArea.h">
       <Filter>playGround\TileMap</Filter>
     </ClInclude>
-    <ClInclude Include="TileObjectStorage.h">
-      <Filter>playGround\TileMap</Filter>
+    <ClInclude Include="Prisoner.h">
+      <Filter>playGround\People</Filter>
     </ClInclude>
-    <ClInclude Include="MouseControl.h">
-      <Filter>playGround</Filter>
+    <ClInclude Include="TestScene.h">
+      <Filter>playGround\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="DirectoryTest.h">
-      <Filter>playGround</Filter>
+    <ClInclude Include="PeopleUtilC.h">
+      <Filter>2DGameFramework\ComponentPattern\Component</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -302,6 +311,9 @@
     <ClCompile Include="TileObject.cpp">
       <Filter>playGround\TileMap</Filter>
     </ClCompile>
+    <ClCompile Include="MouseControl.cpp">
+      <Filter>playGround\TileMap</Filter>
+    </ClCompile>
     <ClCompile Include="csv.cpp">
       <Filter>playGround\csv</Filter>
     </ClCompile>
@@ -341,6 +353,9 @@
     <ClCompile Include="MapToolScene.cpp">
       <Filter>playGround\Scene</Filter>
     </ClCompile>
+    <ClCompile Include="ComponentTest.cpp">
+      <Filter>playGround\Scene</Filter>
+    </ClCompile>
     <ClCompile Include="SelectScene.cpp">
       <Filter>playGround\Scene</Filter>
     </ClCompile>
@@ -350,14 +365,14 @@
     <ClCompile Include="TileArea.cpp">
       <Filter>playGround\TileMap</Filter>
     </ClCompile>
-    <ClCompile Include="TileObjectStorage.cpp">
-      <Filter>playGround\TileMap</Filter>
+    <ClCompile Include="Prisoner.cpp">
+      <Filter>playGround\People</Filter>
     </ClCompile>
-    <ClCompile Include="MouseControl.cpp">
-      <Filter>playGround</Filter>
+    <ClCompile Include="TestScene.cpp">
+      <Filter>playGround\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="DirectoryTest.cpp">
-      <Filter>playGround</Filter>
+    <ClCompile Include="PeopleUtilC.cpp">
+      <Filter>2DGameFramework\ComponentPattern\Component</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "playGround.h"
 #include "MapToolScene.h"
+#include "TestScene.h"
 playGround::playGround()
 {
 }
@@ -31,7 +32,6 @@ HRESULT playGround::init()
 	CAMERAMANAGER->CreateCamera(FloatRect(0, 0, WINSIZEX, WINSIZEY));
 
 	SCENEMANAGER->addScene("¸Ê¾À", new MapToolScene);
-	//SCENEMANAGER->changeScene("¾À");
 	SCENEMANAGER->changeScene("¸Ê¾À");
 
 	//csvÅ×½ºÆ®
@@ -60,6 +60,8 @@ void playGround::render()
 
 	//¾ÀÀ» ·»´õÇÑ´Ù.
 	{
+		CAMERAMANAGER->GetVCamera()[0]->SetPos(Vector2(_ptMouse.x, _ptMouse.y));
+
 		SCENEMANAGER->render();
 		UIMANAGER->render();
 	}
