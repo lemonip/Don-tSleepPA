@@ -4,9 +4,8 @@
 HRESULT TestScene::init()
 {
 	//임시로 걍 한개 꺼내놓은것..
-	_Prisoner = new Prisoner;
-	_Prisoner->init(0, 0);
-
+	_Prisoner = new Prisoner(0,0);
+	_Prisoner->init();
 	return S_OK;
 }
 
@@ -29,8 +28,8 @@ void TestScene::update()
 	if (KEYMANAGER->isOnceKeyDown(VK_LBUTTON))
 	{
 		Prisoner* _tempP;
-		_tempP = new Prisoner;
-		_tempP->init(0, 0);
+		_tempP = new Prisoner(0,0);
+		_tempP->init();
 
 		_vPrisoner.push_back(_tempP);
 	}
