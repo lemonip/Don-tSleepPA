@@ -3,8 +3,7 @@
 class TransformC : public Component
 {
 private:
-	POINT _pos;			//위치
-	POINT _size;		//크기
+	Vector2 _pos;		//위치
 	float _rotation;	//회전
 	int _depth;			//렌더 순서
 
@@ -13,10 +12,11 @@ public:
 	~TransformC() {};
 
 	//게터
-	POINT GetPosition() { return _pos; }
-
+	Vector2 GetPosition() { return _pos; }
+	int GetDepth() { return _depth; }
 	//세터
-	void SetPosition(POINT pos) { _pos = pos; }
+	void SetDepth(int depth) { _depth = depth; }
+	void SetPosition(Vector2 pos) { _pos = pos; }
 
 	//함수
 	virtual void Init();

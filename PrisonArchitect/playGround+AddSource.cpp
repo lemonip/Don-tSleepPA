@@ -52,9 +52,27 @@ void playGround::AddImage()
 	ImageManager::GetInstance()->AddImage("codex", path + folder + L"codex" + filter);
 	ImageManager::GetInstance()->AddFrameImage("buttonBlue", path + folder + L"buttonBlue" + filter, 7, 1);
 	ImageManager::GetInstance()->AddImage("screenEdge", path + folder + L"screenEdge" + filter);
-
+	
+	//사람
 	folder = L"character/";
-	ImageManager::GetInstance()->AddFrameImage("accountant", path + folder + L"accountant" + filter, 4, 2);
+	
+	ImageManager::GetInstance()->AddFrameImage("accountant", path + folder + L"accountant" + filter, 4, 1);
 
+	ImageManager::GetInstance()->AddImage("hand", path + folder + L"hand" + filter);
+	ImageManager::GetInstance()->AddFrameImage("bod0", path + folder + L"bod0" + filter, 4, 1);
+	ImageManager::GetInstance()->AddFrameImage("head0", path + folder + L"head0" + filter, 4, 1);
+	
+
+
+
+	/*
+	char imgNameTemp[256];
+	//l이 뭐지..?
+	for (int i = 0; i < 4; i++)
+	{
+		sprintf_s(imgNameTemp, "bod%d", i);
+		ImageManager::GetInstance()->AddFrameImage(imgNameTemp, path + folder + L"buttonBlue" + filter, 4, 1);
+
+	}*/
 
 }

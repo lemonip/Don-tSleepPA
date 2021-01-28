@@ -6,7 +6,7 @@ class TransformC;
 
 class GameObject
 {
-protected:
+protected://모르겠는 변수들,,=====================================
 	string _name;		//이름
 	string _tag;		//태그
 	bool _isActive;		//활성화 여부
@@ -27,6 +27,10 @@ public:
 	================================================== */
 
 	//오브젝트 만들기
+	//이게뭐지... creato라는 이름의 함수고... 여기에 init해서 생성한애를 넣는건가?
+	// 눌은 왜해..?
+	//인자값은 몰라도 트랜스폼컴포넌트를 무조건 넣구 만드네...근데 자료형에 뭘 ?
+	//넣어야해?????? 쓰지도 않는데?
 	static GameObject* CreateObject(GameObject* parent = NULL);
 
 	//클론 만들기
@@ -38,14 +42,18 @@ public:
 	================================================== */
 
 	//컴포넌트 벡터 게터
+	//자유로운 타입으로 만들어진 벡터를 가져오내///
 	template<typename T>
 	vector<T*> GetvComponent();
 
 	//컴포넌트 게터
+	//?????? 벡터에 든 컴포넌트가 몇번째껀줄알고..???
 	template<typename T>
 	T * GetComponent();
 
 	//컴포넌트 추가
+	//컴포넌트가 무슨컴포넌튼줄알고..?
+	//게다가 반환하잖아..???
 	template<typename T>
 	T * AddComponent();
 
@@ -54,7 +62,6 @@ public:
 
 	//트랜스폼 게터
 	TransformC* GetTransform() { return _transform; };
-
 
 
 	/* ==================================================
@@ -113,6 +120,9 @@ inline vector<T*> GameObject::GetvComponent()
 template<typename T>
 inline T * GameObject::GetComponent()
 {
+	// int* getcom() if <int>컴포 라면..int 로 형변환해서 c를 ??
+	//t랑 자료형이 값은 컴포가 있으면내뱉는다느거야? 아니 근데 t가 뭔줄알고?
+	// : 가 뭐야
 	for (Component* c : _vComponent)
 	{
 		if (dynamic_cast<T*>(c)) return (T*)c;

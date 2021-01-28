@@ -11,6 +11,7 @@ LPCTSTR _lpszClass = TEXT("Don't Sleep");
 
 Vector2 _ptMouse;		//마우스 포인터
 int _wheelMouse;		//마우스 휠
+int _gameSpeed = 1;			//게임 변수 (임시로 1로 초기화해둠)
 
 playGround _pg;
 

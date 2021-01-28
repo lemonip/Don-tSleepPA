@@ -61,6 +61,9 @@
     <Filter Include="playGround\Scene">
       <UniqueIdentifier>{91f41925-27c9-423b-9a46-e1a5e48e9e93}</UniqueIdentifier>
     </Filter>
+    <Filter Include="playGround\People">
+      <UniqueIdentifier>{bb20878d-9b31-4d63-b9e6-ae316e223d6e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -216,6 +219,15 @@
     <ClInclude Include="TileArea.h">
       <Filter>playGround\TileMap</Filter>
     </ClInclude>
+    <ClInclude Include="People.h">
+      <Filter>playGround\People</Filter>
+    </ClInclude>
+    <ClInclude Include="Prisoner.h">
+      <Filter>playGround\People</Filter>
+    </ClInclude>
+    <ClInclude Include="TestScene.h">
+      <Filter>playGround\Scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="windowsAPI.cpp">
@@ -352,6 +364,15 @@
     </ClCompile>
     <ClCompile Include="TileArea.cpp">
       <Filter>playGround\TileMap</Filter>
+    </ClCompile>
+    <ClCompile Include="People.cpp">
+      <Filter>playGround\People</Filter>
+    </ClCompile>
+    <ClCompile Include="Prisoner.cpp">
+      <Filter>playGround\People</Filter>
+    </ClCompile>
+    <ClCompile Include="TestScene.cpp">
+      <Filter>playGround\Scene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

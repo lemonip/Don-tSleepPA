@@ -172,7 +172,9 @@
     <ClInclude Include="MapToolScene.h" />
     <ClInclude Include="Math.h" />
     <ClInclude Include="MouseControl.h" />
+    <ClInclude Include="People.h" />
     <ClInclude Include="playGround.h" />
+    <ClInclude Include="Prisoner.h" />
     <ClInclude Include="randomFunction.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="ScenarioScene.h" />
@@ -185,6 +187,7 @@
     <ClInclude Include="StartScene.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="TestScene.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="TileArea.h" />
     <ClInclude Include="TileMap.h" />
@@ -222,8 +225,10 @@
     <ClCompile Include="MapToolScene.cpp" />
     <ClCompile Include="Math.cpp" />
     <ClCompile Include="MouseControl.cpp" />
+    <ClCompile Include="People.cpp" />
     <ClCompile Include="playGround+AddSource.cpp" />
     <ClCompile Include="playGround.cpp" />
+    <ClCompile Include="Prisoner.cpp" />
     <ClCompile Include="ScenarioScene.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="sceneManager.cpp" />
@@ -237,6 +242,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="TestScene.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="TileArea.cpp" />
     <ClCompile Include="TileMap.cpp" />

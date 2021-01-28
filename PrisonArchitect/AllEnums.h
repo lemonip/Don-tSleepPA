@@ -77,3 +77,14 @@ enum class TILEOBJECT
 	변기,
 	사무실책상,
 };
+
+//사람역할
+enum ROLE
+{
+	WORKER,
+	WARDER,
+	COOKER
+};
+
+
+

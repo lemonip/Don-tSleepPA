@@ -5,9 +5,22 @@ HRESULT ComponentTest::init()
 {
 	_character = GameObject::CreateObject();
 
-	_character->GetTransform()->SetPosition({ WINSIZEX/2, WINSIZEY/2 });
+
+	//인부가 0,1,2,3,4
+	// 인부0 12,3,1
+
+	/*
+	_worker0 =  GameObject::CreateObject(_worker0);
+	_worker1 =  GameObject::CreateObject(_worker0);
+	_worker2 =  GameObject::CreateObject(_worker0);
+	_worker3 =  GameObject::CreateObject(_worker0);
+	
+	*/
+
+	_character->GetTransform()->SetPosition(Vector2( WINSIZEX/2, WINSIZEY/2 ));
 
 	_character->AddComponent<DrawC>();
+	//->_img = IMAGEMANAGER->FindImage("accountant");
 	_character->GetComponent<DrawC>()->_img = IMAGEMANAGER->FindImage("accountant");
 
 	_character->Init();
@@ -26,7 +39,7 @@ void ComponentTest::update()
 
 	if (_character)_character->Update();
 
-	if (KEYMANAGER->isStayKeyDown(VK_RIGHT))
+	/*if (KEYMANAGER->isStayKeyDown(VK_RIGHT))
 		_character->GetTransform()->SetPosition({ _character->GetTransform()->GetPosition().x + 10, _character->GetTransform()->GetPosition().y });
 
 	if (KEYMANAGER->isStayKeyDown(VK_LEFT))
@@ -37,15 +50,13 @@ void ComponentTest::update()
 
 	if (KEYMANAGER->isStayKeyDown(VK_DOWN))
 		_character->GetTransform()->SetPosition({ _character->GetTransform()->GetPosition().x, _character->GetTransform()->GetPosition().y + 10 });
-
+*/
 }
 
 void ComponentTest::render()
 {
 	// if (_character)_character->Render();
 	//if (_character)_character->Render(getMemDC());
-
-	CAMERAMANAGER->GetVCamera()[0]->SetPos(Vector2(_ptMouse.x, _ptMouse.y));
 
 	_character->GetComponent<DrawC>()->_img->FrameRender(Vector2(_character->GetTransform()->GetPosition()), 0,0, CAMERAMANAGER->GetVCamera()[0]);
 	

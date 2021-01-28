@@ -1,19 +1,16 @@
 #pragma once
 #include "gameNode.h"
 #include "Prisoner.h"
-
-
-
-class Scene : public gameNode
+#include "Scene.h"
+class TestScene : public Scene
 {
-
-protected:
-
+	vector<Prisoner*> _vPrisoner;
+	Prisoner* _Prisoner;
 public:
 	virtual HRESULT init();
 	virtual void release();
 	virtual void update();
 	virtual void render();
-
 };
+
 

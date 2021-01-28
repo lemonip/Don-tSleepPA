@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "playGround.h"
 #include "MapToolScene.h"
+#include "TestScene.h"
 #include "ComponentTest.h"
 playGround::playGround()
 {
@@ -33,8 +34,9 @@ HRESULT playGround::init()
 
 	SCENEMANAGER->addScene("¸Ê¾À", new MapToolScene);
 	SCENEMANAGER->addScene("ÄÄÆ÷³ÍÆ®¾À", new ComponentTest);
-	//SCENEMANAGER->changeScene("¾À");
-	SCENEMANAGER->changeScene("¸Ê¾À");
+	SCENEMANAGER->addScene("Å×½ºÆ®¾À", new TestScene);
+	SCENEMANAGER->changeScene("Å×½ºÆ®¾À");
+	//SCENEMANAGER->changeScene("¸Ê¾À");
 
 	//csvÅ×½ºÆ®
 	_csv.read();
@@ -62,6 +64,8 @@ void playGround::render()
 
 	//¾ÀÀ» ·»´õÇÑ´Ù.
 	{
+		CAMERAMANAGER->GetVCamera()[0]->SetPos(Vector2(_ptMouse.x, _ptMouse.y));
+
 		SCENEMANAGER->render();
 		UIMANAGER->render();
 	}

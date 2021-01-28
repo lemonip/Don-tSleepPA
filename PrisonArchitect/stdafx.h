@@ -114,3 +114,4 @@ extern HWND			_hWnd;
 extern Vector2		_ptMouse;
 extern HDC			_hdc;
 extern int			_wheelMouse;
+extern int			_gameSpeed;
