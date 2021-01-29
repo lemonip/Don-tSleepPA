@@ -8,7 +8,10 @@ Prisoner::Prisoner(int bodNum, int headNum)
 	{
 		//¸öÅë ÃÊ±âÈ­
 		char bodImgName[20];
-		sprintf_s(bodImgName, "bod%d", bodNum);
+		_bodNum = bodNum;
+		sprintf_s(bodImgName, "bodCloth%d", bodNum);
+
+
 		_torso = CreateObject(this);
 		_torso->AddComponent<DrawC>()->_img = IMAGEMANAGER->FindImage(bodImgName);
 		_torso->GetComponent<DrawC>()->SetCamera(CAMERAMANAGER->GetVCamera()[0]);
@@ -23,6 +26,7 @@ Prisoner::Prisoner(int bodNum, int headNum)
 		_head->GetComponent<DrawC>()->SetCamera(CAMERAMANAGER->GetVCamera()[0]);
 
 	}
+	
 }
 //¼Ò¸êÀÚ
 Prisoner::~Prisoner()
@@ -54,5 +58,22 @@ void Prisoner::render()
 
 	_rightHand->GetComponent<DrawC>()->Render();
 	_leftHand->GetComponent<DrawC>()->Render();
+}
+
+//ÂøÀÇ ¿©ºÎ ¼¼ÆÃ
+void Prisoner::SetIsNaked(bool isNaked)
+{
+	if (!isNaked)
+	{
+		char bodImgName[20];
+		sprintf_s(bodImgName, "bodCloth%d", _bodNum);
+		_torso->GetComponent<DrawC>()->_img = IMAGEMANAGER->FindImage(bodImgName);
+	}
+	if (isNaked)
+	{
+		char bodImgName[20];
+		sprintf_s(bodImgName, "bod%d", _bodNum);
+		_torso->GetComponent<DrawC>()->_img = IMAGEMANAGER->FindImage(bodImgName);
+	}
 }
 

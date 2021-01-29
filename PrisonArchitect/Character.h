@@ -22,12 +22,11 @@ class Character : public GameObject
 {
 protected:
 	//신체 파츠
-	GameObject* _torso;
-	GameObject* _rightHand;
-	GameObject* _leftHand;
+	GameObject* _torso;			//몸통
+	GameObject* _rightHand;		//오른손
+	GameObject* _leftHand;		//왼손
 
-	//정보
-	tagCharacterInfo _info;
+	tagCharacterInfo _info;		//정보
 
 public:
 	Character();

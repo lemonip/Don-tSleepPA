@@ -174,7 +174,6 @@
     <ClInclude Include="MouseControl.h" />
     <ClInclude Include="Character.h" />
     <ClInclude Include="People.h" />
-    <ClInclude Include="PeopleUtilC.h" />
     <ClInclude Include="playGround.h" />
     <ClInclude Include="Prisoner.h" />
     <ClInclude Include="randomFunction.h" />
@@ -234,7 +233,6 @@
     <ClCompile Include="MouseControl.cpp" />
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="People.cpp" />
-    <ClCompile Include="PeopleUtilC.cpp" />
     <ClCompile Include="playGround+AddSource.cpp" />
     <ClCompile Include="playGround.cpp" />
     <ClCompile Include="Prisoner.cpp" />

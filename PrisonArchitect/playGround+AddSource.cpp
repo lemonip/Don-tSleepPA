@@ -44,7 +44,7 @@ void playGround::AddImage()
 	ImageManager::GetInstance()->AddFrameImage("철창문", path + folder + L"철창문" + filter, 3, 1);
 	ImageManager::GetInstance()->AddFrameImage("침대", path + folder + L"침대" + filter, 3, 1);
 	ImageManager::GetInstance()->AddImage("하수구", path + folder + L"하수구" + filter);
-	
+
 	// UI
 	folder = L"ui/";
 
@@ -52,27 +52,67 @@ void playGround::AddImage()
 	ImageManager::GetInstance()->AddImage("codex", path + folder + L"codex" + filter);
 	ImageManager::GetInstance()->AddFrameImage("buttonBlue", path + folder + L"buttonBlue" + filter, 7, 1);
 	ImageManager::GetInstance()->AddImage("screenEdge", path + folder + L"screenEdge" + filter);
-	
+
 	//사람
 	folder = L"character/";
-	
+
 	ImageManager::GetInstance()->AddFrameImage("accountant", path + folder + L"accountant" + filter, 4, 1);
+	ImageManager::GetInstance()->AddFrameImage("bitalia", path + folder + L"bitalia" + filter, 4, 1);
+	ImageManager::GetInstance()->AddFrameImage("boss", path + folder + L"boss" + filter, 4, 1);
+	ImageManager::GetInstance()->AddFrameImage("nico", path + folder + L"nico" + filter, 4, 1);
+	ImageManager::GetInstance()->AddFrameImage("teacher", path + folder + L"teacher" + filter, 4, 1);
+	ImageManager::GetInstance()->AddFrameImage("warden", path + folder + L"warden" + filter, 4, 1);
 
 	ImageManager::GetInstance()->AddImage("hand", path + folder + L"hand" + filter);
-	ImageManager::GetInstance()->AddFrameImage("bod0", path + folder + L"bod0" + filter, 4, 1);
-	ImageManager::GetInstance()->AddFrameImage("head0", path + folder + L"head0" + filter, 4, 1);
-	
 
+	string imgName;	//등록할 이름
+	wstring fileName;//등록할 이미지이름
 
-
-	/*
-	char imgNameTemp[256];
-	//l이 뭐지..?
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < 4; i++) 
 	{
-		sprintf_s(imgNameTemp, "bod%d", i);
-		ImageManager::GetInstance()->AddFrameImage(imgNameTemp, path + folder + L"buttonBlue" + filter, 4, 1);
+		//몸 이미지 등록
+		imgName = "bod" + to_string(i);
+		fileName = L"bod" + to_wstring(i);
+		ImageManager::GetInstance()->AddFrameImage(imgName , path + folder + fileName + filter, 4, 1);
+		
+		//몸(옷) 이미지 등록
+		imgName = "bodCloth" + to_string(i);
+		fileName = L"bodCloth" + to_wstring(i);
+		ImageManager::GetInstance()->AddFrameImage(imgName, path + folder + fileName + filter, 4, 1);
 
-	}*/
+		//머리 이미지 등록
+		imgName = "head" + to_string(i);
+		fileName = L"head" + to_wstring(i);
+		ImageManager::GetInstance()->AddFrameImage(imgName, path + folder + fileName + filter, 4, 1);
+
+		//청소부 이미지 등록
+		imgName = "cleaner" + to_string(i);
+		fileName = L"cleaner" + to_wstring(i);
+		ImageManager::GetInstance()->AddFrameImage(imgName, path + folder + fileName + filter, 4, 1);
+
+		//요리사 이미지 등록
+		imgName = "cooker" + to_string(i);
+		fileName = L"cooker" + to_wstring(i);
+		ImageManager::GetInstance()->AddFrameImage(imgName, path + folder + fileName + filter, 4, 1);
+
+		//의사 이미지 등록
+		imgName = "docter" + to_string(i);
+		fileName = L"docter" + to_wstring(i);
+		ImageManager::GetInstance()->AddFrameImage(imgName, path + folder + fileName + filter, 4, 1);
+
+		//인부 이미지 등록
+		imgName = "worker" + to_string(i);
+		fileName = L"worker" + to_wstring(i);
+		ImageManager::GetInstance()->AddFrameImage(imgName, path + folder + fileName + filter, 4, 1);
+
+		//교도관 이미지 등록
+		imgName = "warder" + to_string(i);
+		fileName = L"warder" + to_wstring(i);
+		ImageManager::GetInstance()->AddFrameImage(imgName, path + folder + fileName + filter, 4, 1);
+	}
+	imgName = "warder" + to_string(4);
+	fileName = L"warder" + to_wstring(4);
+	ImageManager::GetInstance()->AddFrameImage(imgName, path + folder + fileName + filter, 4, 1);
 
 }
+

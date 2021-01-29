@@ -225,9 +225,6 @@
     <ClInclude Include="TestScene.h">
       <Filter>playGround\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="PeopleUtilC.h">
-      <Filter>2DGameFramework\ComponentPattern\Component</Filter>
-    </ClInclude>
     <ClInclude Include="DirectoryTest.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
@@ -391,9 +388,6 @@
     </ClCompile>
     <ClCompile Include="TestScene.cpp">
       <Filter>playGround\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="PeopleUtilC.cpp">
-      <Filter>2DGameFramework\ComponentPattern\Component</Filter>
     </ClCompile>
     <ClCompile Include="DirectoryTest.cpp">
       <Filter>소스 파일</Filter>

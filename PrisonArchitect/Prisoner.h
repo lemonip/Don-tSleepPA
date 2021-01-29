@@ -6,7 +6,7 @@ class Prisoner : public Character
 {
 private:
 	GameObject* _head;	//신체파츠
-
+	int _bodNum;		//몸통번호
 public:
 	Prisoner(int bodNum, int headNum);
 	~Prisoner();
@@ -15,6 +15,9 @@ public:
 	virtual void release();
 	virtual void update();
 	virtual void render();
+
+	//착의 여부 세팅
+	void SetIsNaked(bool isNaked);
 };
 
 
