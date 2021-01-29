@@ -21,11 +21,11 @@ void DrawC::Update()
 void DrawC::Render()
 {
 	if (!_img) return;
-	//_img->render(_camera->_dc->getMemDC(), _object->GetTransform()->GetPosition().x, _transform->GetPosition().y);
+	_img->Render(Vector2(_object->GetTransform()->GetPosition().x, _transform->GetPosition().y), _camera);
 }
 
-void DrawC::Render(HDC hdc)
+void DrawC::Render(int frameX, int frameY)
 {
 	if (!_img) return;
-	//_img->render(hdc, _transform->GetPosition().x, _transform->GetPosition().y);
+	_img->FrameRender(Vector2(_object->GetTransform()->GetPosition().x, _transform->GetPosition().y), frameX, frameY, _camera);
 }

@@ -1,7 +1,7 @@
 #pragma once
 #define TILESIZE 64
 
-
+//지역
 enum class AREATYPE
 {
 	JAIL,			//감옥
@@ -16,6 +16,7 @@ enum class AREATYPE
 	END,			//없음
 };
 
+//마우스 상태
 enum class MOUSESTATE
 {
 	SELECT,		//선택
@@ -23,6 +24,7 @@ enum class MOUSESTATE
 	END,		//없음
 };
 
+//마우스 드래그
 enum class MOUSEDRAG
 {
 	POINT,		//점
@@ -31,6 +33,7 @@ enum class MOUSEDRAG
 	END,		//없음
 };
 
+//오브젝트 타입
 enum class OBJECTTYPE
 {
 	TERRAIN,	//지형
@@ -93,10 +96,20 @@ enum class TILEOBJECT
 	END,
 };
 
-//사람역할
-enum PEOPLEROLE
+//스탭 역할
+enum class STAFFROLE
 {
-	WORKER,
-	WARDER,
-	COOKER
+	ACCOUNTANT,
+	CLEANER,
+	COOKER,
+	DOCTER,
+	END,
+};
+
+enum class PEOPLEROLE
+{
+	BITALIA,
+	BOSS,
+	NICO,
+	END,
 };

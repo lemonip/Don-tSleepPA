@@ -1,20 +1,15 @@
 #pragma once
 #include "Character.h"
 
-//ÁË¼ö
-class Prisoner : public Character
+class Warder : public Character
 {
-private:
-	GameObject* _head;	//½ÅÃ¼ÆÄÃ÷
-
 public:
-	Prisoner(int bodNum, int headNum);
-	~Prisoner();
+	Warder(int num);
+	~Warder() {};
 
 	virtual HRESULT init();
 	virtual void release();
 	virtual void update();
 	virtual void render();
 };
-
 

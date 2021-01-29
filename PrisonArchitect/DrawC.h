@@ -10,6 +10,7 @@ public:
 	Camera* _camera;			//카메라
 
 	Image* _img;
+
 public:
 	DrawC() {}
 	~DrawC() {}
@@ -18,9 +19,9 @@ public:
 	virtual void Init() override;
 	virtual void Update() override;
 	virtual void Render() override;
+	virtual void Render(int frameX, int frameY);
 
-	//카메라 없어서 잠깐 만들어 둠.
-	virtual void Render(HDC hdc) override;
+	void SetCamera(Camera* camera) { _camera = camera; }
 
 };
 

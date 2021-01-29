@@ -3,9 +3,10 @@
 
 HRESULT TestScene::init()
 {
-	//임시로 걍 한개 꺼내놓은것..
-	_Prisoner = new Prisoner(0,0);
-	_Prisoner->init();
+	Character* _tempP = new Prisoner(0, 0);
+	_tempP->init();
+	_vCharacter.push_back(_tempP);
+
 	return S_OK;
 }
 
@@ -16,36 +17,28 @@ void TestScene::release()
 void TestScene::update()
 {
 	//임시로 꺼내놓은애
-	_Prisoner->update();
 
 	//벡터에 있는 사람들
-	for (int i = 0; i != _vPrisoner.size(); i++)
+	for (int i = 0; i != _vCharacter.size(); i++)
 	{
-		_vPrisoner[i]->update();
+		_vCharacter[i]->update();
 	}
 
 	//클릭하면 사람을 생성
 	if (KEYMANAGER->isOnceKeyDown(VK_LBUTTON))
 	{
-		Prisoner* _tempP;
-		_tempP = new Prisoner(0,0);
+		Character* _tempP = new Prisoner(0,0);
 		_tempP->init();
 
-		_vPrisoner.push_back(_tempP);
+		_vCharacter.push_back(_tempP);
 	}
-	
-
-	
 }
 
 void TestScene::render()
 {
-	//임시로 꺼내놓은애
-	_Prisoner->render();
-
-	//사람들
-	for (int i = 0; i != _vPrisoner.size(); i++)
+	//사람들 (나중에는 Z-ORDER에 따라 정렬해야 함)
+	for (int i = 0; i != _vCharacter.size(); i++)
 	{
-		_vPrisoner[i]->render();
+		_vCharacter[i]->render();
 	}
 }

@@ -4,8 +4,7 @@
 #include "Scene.h"
 class TestScene : public Scene
 {
-	vector<Prisoner*> _vPrisoner;
-	Prisoner* _Prisoner;
+	vector<Character*> _vCharacter;
 public:
 	virtual HRESULT init();
 	virtual void release();

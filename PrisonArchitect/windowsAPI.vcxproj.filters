@@ -61,7 +61,10 @@
     <Filter Include="playGround\Scene">
       <UniqueIdentifier>{91f41925-27c9-423b-9a46-e1a5e48e9e93}</UniqueIdentifier>
     </Filter>
-    <Filter Include="playGround\People">
+    <Filter Include="playGround\StuffObject">
+      <UniqueIdentifier>{6865adb7-e459-4aad-bf6f-cc61d653af17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="playGround\Character">
       <UniqueIdentifier>{bb20878d-9b31-4d63-b9e6-ae316e223d6e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -207,9 +210,6 @@
     <ClInclude Include="MapToolScene.h">
       <Filter>playGround\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="ComponentTest.h">
-      <Filter>playGround\Scene</Filter>
-    </ClInclude>
     <ClInclude Include="SelectScene.h">
       <Filter>playGround\Scene</Filter>
     </ClInclude>
@@ -220,13 +220,37 @@
       <Filter>playGround\TileMap</Filter>
     </ClInclude>
     <ClInclude Include="Prisoner.h">
-      <Filter>playGround\People</Filter>
+      <Filter>playGround\Character</Filter>
     </ClInclude>
     <ClInclude Include="TestScene.h">
       <Filter>playGround\Scene</Filter>
     </ClInclude>
     <ClInclude Include="PeopleUtilC.h">
       <Filter>2DGameFramework\ComponentPattern\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectoryTest.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="TileObjectStorage.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Worker.h">
+      <Filter>playGround\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="Warder.h">
+      <Filter>playGround\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="StuffObject.h">
+      <Filter>playGround\StuffObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Character.h">
+      <Filter>playGround\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="Staff.h">
+      <Filter>playGround\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="People.h">
+      <Filter>playGround\Character</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -353,9 +377,6 @@
     <ClCompile Include="MapToolScene.cpp">
       <Filter>playGround\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="ComponentTest.cpp">
-      <Filter>playGround\Scene</Filter>
-    </ClCompile>
     <ClCompile Include="SelectScene.cpp">
       <Filter>playGround\Scene</Filter>
     </ClCompile>
@@ -366,13 +387,37 @@
       <Filter>playGround\TileMap</Filter>
     </ClCompile>
     <ClCompile Include="Prisoner.cpp">
-      <Filter>playGround\People</Filter>
+      <Filter>playGround\Character</Filter>
     </ClCompile>
     <ClCompile Include="TestScene.cpp">
       <Filter>playGround\Scene</Filter>
     </ClCompile>
     <ClCompile Include="PeopleUtilC.cpp">
       <Filter>2DGameFramework\ComponentPattern\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectoryTest.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="TileObjectStorage.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Worker.cpp">
+      <Filter>playGround\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="Warder.cpp">
+      <Filter>playGround\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="StuffObject.cpp">
+      <Filter>playGround\StuffObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Character.cpp">
+      <Filter>playGround\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="Staff.cpp">
+      <Filter>playGround\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="People.cpp">
+      <Filter>playGround\Character</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

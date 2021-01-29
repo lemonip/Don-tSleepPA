@@ -195,24 +195,24 @@ int TileMap::GetWallFrame(Vector2 index, TileObject * tileObj)
 
 	switch (wall)
 	{
-	case 0:	 wallIndex = 22;	break;		//╧╚
-	case 1:	 wallIndex = 14;	break;		//╩С
-	case 2:	 wallIndex = 7;		break;		//го
-	case 3:	 wallIndex = 0;		break;		//╩Сго
-	case 4:	 wallIndex = 15;	break;		//аб
-	case 5:	 wallIndex = 10;	break;		//╩Саб
-	case 6:	 wallIndex = 3;		break;		//гоаб
-	case 7:	 wallIndex = 19;	break;		//╩Сгоаб
-	case 8:	 wallIndex = 8;		break;		//©Л
-	case 9:	 wallIndex = 9;		break;		//╩С©Л
-	case 10: wallIndex = 2;		break;		//го©Л
-	case 11: wallIndex = 18;	break;		//╩Сго©Л
-	case 12: wallIndex = 1;		break;		//аб©Л
-	case 13: wallIndex = 11;	break;		//╩Саб©Л
-	case 14: wallIndex = 4;		break;		//гоаб©Л
-	case 15: wallIndex = 20;	break;		//╩Сгоаб©Л
-	default:
-	break;
+		case 0:	 wallIndex = 22;	break;		//╧╚
+		case 1:	 wallIndex = 14;	break;		//╩С
+		case 2:	 wallIndex = 7;		break;		//го
+		case 3:	 wallIndex = 0;		break;		//╩Сго
+		case 4:	 wallIndex = 15;	break;		//аб
+		case 5:	 wallIndex = 10;	break;		//╩Саб
+		case 6:	 wallIndex = 3;		break;		//гоаб
+		case 7:	 wallIndex = 19;	break;		//╩Сгоаб
+		case 8:	 wallIndex = 8;		break;		//©Л
+		case 9:	 wallIndex = 9;		break;		//╩С©Л
+		case 10: wallIndex = 2;		break;		//го©Л
+		case 11: wallIndex = 18;	break;		//╩Сго©Л
+		case 12: wallIndex = 1;		break;		//аб©Л
+		case 13: wallIndex = 11;	break;		//╩Саб©Л
+		case 14: wallIndex = 4;		break;		//гоаб©Л
+		case 15: wallIndex = 20;	break;		//╩Сгоаб©Л
+		default:
+		break;
 	}
 	return wallIndex;
 }
