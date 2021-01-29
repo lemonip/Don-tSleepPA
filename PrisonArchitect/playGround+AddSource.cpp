@@ -54,6 +54,9 @@ void playGround::AddImage()
 	ImageManager::GetInstance()->AddImage("codex", path + folder + L"codex" + filter);
 	ImageManager::GetInstance()->AddFrameImage("buttonBlue", path + folder + L"buttonBlue" + filter, 7, 1);
 	ImageManager::GetInstance()->AddImage("screenEdge", path + folder + L"screenEdge" + filter);
+	
+	ImageManager::GetInstance()->AddImage("temp", path + folder + L"temp" + filter);
+	ImageManager::GetInstance()->AddImage("dialogWindow", path + folder + L"dialogWindow" + filter);
 
 	//»ç¶÷
 	folder = L"character/";

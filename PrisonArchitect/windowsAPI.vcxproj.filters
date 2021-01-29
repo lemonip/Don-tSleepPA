@@ -210,9 +210,6 @@
     <ClInclude Include="SelectScene.h">
       <Filter>playGround\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="ScenarioScene.h">
-      <Filter>playGround\Scene</Filter>
-    </ClInclude>
     <ClInclude Include="TileArea.h">
       <Filter>playGround\TileMap</Filter>
     </ClInclude>
@@ -266,6 +263,9 @@
     </ClInclude>
     <ClInclude Include="TitleMouse.h">
       <Filter>playGround\Mouse</Filter>
+    </ClInclude>
+    <ClInclude Include="CampaignScene.h">
+      <Filter>playGround\Scene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -389,9 +389,6 @@
     <ClCompile Include="SelectScene.cpp">
       <Filter>playGround\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="ScenarioScene.cpp">
-      <Filter>playGround\Scene</Filter>
-    </ClCompile>
     <ClCompile Include="TileArea.cpp">
       <Filter>playGround\TileMap</Filter>
     </ClCompile>
@@ -442,6 +439,9 @@
     </ClCompile>
     <ClCompile Include="TitleMouse.cpp">
       <Filter>playGround\Mouse</Filter>
+    </ClCompile>
+    <ClCompile Include="CampaignScene.cpp">
+      <Filter>playGround\Scene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

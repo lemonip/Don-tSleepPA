@@ -181,7 +181,7 @@
     <ClInclude Include="Prisoner.h" />
     <ClInclude Include="randomFunction.h" />
     <ClInclude Include="Resource.h" />
-    <ClInclude Include="ScenarioScene.h" />
+    <ClInclude Include="CampaignScene.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="sceneManager.h" />
     <ClInclude Include="ScriptC.h" />
@@ -243,7 +243,7 @@
     <ClCompile Include="playGround+AddSource.cpp" />
     <ClCompile Include="playGround.cpp" />
     <ClCompile Include="Prisoner.cpp" />
-    <ClCompile Include="ScenarioScene.cpp" />
+    <ClCompile Include="CampaignScene.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="sceneManager.cpp" />
     <ClCompile Include="ScriptC.cpp" />

@@ -1,8 +1,10 @@
 #pragma once
 #include "Scene.h"
-class ScenarioScene : public Scene
-{
+#include "People.h"
 
+class CampaignScene : public Scene
+{
+	vector<People*> _vPeople;
 private:
 
 public:

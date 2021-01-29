@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "TitleScene.h"
 #include "MapToolScene.h"
+#include "CampaignScene.h"
 HRESULT TitleScene::init()
 {
 
@@ -15,10 +16,12 @@ void TitleScene::update()
 {
 	if (KEYMANAGER->isOnceKeyUp(VK_RETURN))
 	{
-		SCENEMANAGER->ReplaceScene(new MapToolScene);
+		//SCENEMANAGER->ReplaceScene(new MapToolScene);
+		SCENEMANAGER->PushScene(new CampaignScene);
 	}
 }
 
 void TitleScene::render()
 {
+
 }
