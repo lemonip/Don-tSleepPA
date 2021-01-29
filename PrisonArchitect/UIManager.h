@@ -20,17 +20,5 @@ public:
 	void update();
 	void render();
 
-	void addUnderBarUI(string strName, Vector2 pos, float scale, Image* img, int frameX, int frameY);
-	void addUnderBarWindowUI(Vector2 pos, Vector2 size, float scale);
-	void addObjectButtonUIInWindowUI(int arrNum, string strName, Vector2 pos, float scale, Image* img);
-	
-	void addWindowUI(Vector2 pos, Vector2 size, float scale);
-	
-
-	void setLinkUnderBarUI(int arrNum, int arrNum2);
-
-
-	vector<BarButtonUI*> getVUnderBar() { return _underBar; }
-	vector<WindowUI*> getVUnderBarWindowUI() { return _underBarWindowUI; }
 };
 

@@ -6,7 +6,7 @@ class UI
 {
 private:
 
-	
+
 public:
 	UI();
 	~UI();
@@ -58,7 +58,7 @@ public:
 	virtual void render();
 
 	void addObjectButtonUI(string strName, Vector2 pos, float scale, Image* img);
-		
+
 	vector<Button*> getVButton() { return _vButton; }
 	void setIsActive(bool active) { isActive = active; }
 	void setIsRender(bool render) { isRender = render; }

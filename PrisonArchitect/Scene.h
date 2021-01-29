@@ -2,12 +2,12 @@
 #include "gameNode.h"
 #include "Prisoner.h"
 
-
-
 class Scene : public gameNode
 {
 
 protected:
+	bool willRelease;
+
 
 public:
 	virtual HRESULT init();

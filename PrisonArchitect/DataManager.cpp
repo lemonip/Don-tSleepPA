@@ -1,7 +1,7 @@
 #include "stdafx.h"
-#include "TileObjectStorage.h"
+#include "DataManager.h"
 
-void TileObjectStorage::SetStorage()
+void DataManager::init()
 {
 	_terrainImg = IMAGEMANAGER->FindImage("terrain");
 
@@ -28,7 +28,7 @@ void TileObjectStorage::SetStorage()
 	}
 }
 
-TileObject * TileObjectStorage::FindTileObject(string key)
+TileObject * DataManager::FindTileObject(string key)
 {
 	//오브젝트 찾기
 	miTileObject _miTileObject = _mTileObject.find(key);

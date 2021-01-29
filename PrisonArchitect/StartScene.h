@@ -2,6 +2,7 @@
 #include "Scene.h"
 class StartScene : public Scene
 {
+private:
 
 public:
 

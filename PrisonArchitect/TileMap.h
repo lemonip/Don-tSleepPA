@@ -36,11 +36,8 @@ public:
 	//벽의 오토타일 프레임을 구해 줌
 	int GetWallFrame(Vector2 index, TileObject* tileObj);
 	
+	//타일에 지을 수 있는지 확인 해 줌
 	bool CanBuildTile(Vector2 index, TileObject* tileObj);
-
-	//void BuildTileObject(Tile* tile, TileObject* tileObj, DIRECTION direction);
-
-	//void BuildTileObject(Vector2 index, TileObject* tileObj);
 
 };
 

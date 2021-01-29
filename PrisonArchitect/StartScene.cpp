@@ -3,7 +3,9 @@
 
 HRESULT StartScene::init()
 {
-	return E_NOTIMPL;
+	willRelease = true;
+
+	return S_OK;
 }
 
 void StartScene::release()

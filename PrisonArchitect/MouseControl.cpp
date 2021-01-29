@@ -1,11 +1,11 @@
 #include "stdafx.h"
 #include "MouseControl.h"
 #include "TileObject.h"
-#include "TileObjectStorage.h"
 
 void MouseControl::Init()
 {
-	_mouseObj = TileObjectStorage::GetInstance()->FindTileObject("가스레인지");
+	_mouseObj = DATAMANAGER->FindTileObject("가스레인지");
+	_state = MOUSESTATE::NONE;
 }
 
 void MouseControl::Release()
@@ -14,7 +14,39 @@ void MouseControl::Release()
 
 void MouseControl::Update()
 {
-	Control();
+	/*
+	//항상
+	template<T>
+
+	if(KEYMANAGER->isOnceKeyDown(VK_LBUTTON))
+	ClickObject() -> Click(); //클릭함수에서 마우스가 렌더하는 이미지 또는 오브젝트를 끼워준다?
+
+	Script(컴포넌트)
+
+	for(UI)
+	ptinrect return ui;
+
+	if(선택)
+	for(사람)
+	ptinrect return 사람;
+
+	for(오브젝트)
+	ptinrect return 오브젝트;
+
+	for(벽)
+	ptrinrect return 벽;
+
+
+
+	if(설치, 철거)
+	for(타일)
+	ptinrect return 타일
+
+	*/
+
+	//Control();
+
+	Move();
 
 	if (KEYMANAGER->isOnceKeyDown('R'))
 	{
@@ -31,37 +63,37 @@ void MouseControl::Update()
 
 	if (KEYMANAGER->isOnceKeyDown('1'))
 	{
-		_mouseObj = TileObjectStorage::GetInstance()->FindTileObject("가스레인지");
+		_mouseObj = DATAMANAGER->FindTileObject("가스레인지");
 	}
 
 	if (KEYMANAGER->isOnceKeyDown('2'))
 	{
-		_mouseObj = TileObjectStorage::GetInstance()->FindTileObject("배식대");
+		_mouseObj = DATAMANAGER->FindTileObject("배식대");
 	}
 
 	if (KEYMANAGER->isOnceKeyDown('3'))
 	{
-		_mouseObj = TileObjectStorage::GetInstance()->FindTileObject("벤치");
+		_mouseObj = DATAMANAGER->FindTileObject("벤치");
 	}
 
 	if (KEYMANAGER->isOnceKeyDown('4'))
 	{
-		_mouseObj = TileObjectStorage::GetInstance()->FindTileObject("wall0");
+		_mouseObj = DATAMANAGER->FindTileObject("wall0");
 	}
 
 	if (KEYMANAGER->isOnceKeyDown('5'))
 	{
-		_mouseObj = TileObjectStorage::GetInstance()->FindTileObject("wall1");
+		_mouseObj = DATAMANAGER->FindTileObject("wall1");
 	}
 
 	if (KEYMANAGER->isOnceKeyDown('6'))
 	{
-		_mouseObj = TileObjectStorage::GetInstance()->FindTileObject("사무실책상");
+		_mouseObj = DATAMANAGER->FindTileObject("사무실책상");
 	}
 
 	if (KEYMANAGER->isOnceKeyDown('7'))
 	{
-		_mouseObj = TileObjectStorage::GetInstance()->FindTileObject("GRASS2");
+		_mouseObj = DATAMANAGER->FindTileObject("GRASS2");
 	}
 }
 
@@ -266,4 +298,62 @@ void MouseControl::Control()
 			}
 		}
 	}
+}
+
+void MouseControl::Move()
+{
+	/*
+	//항상
+	template<T>
+
+	if(KEYMANAGER->isOnceKeyDown(VK_LBUTTON))
+	ClickObject() -> Click(); //클릭함수에서 마우스가 렌더하는 이미지 또는 오브젝트를 끼워준다?
+
+	Script(컴포넌트)
+
+	for(UI)
+	ptinrect return ui;
+
+	if(선택)
+	for(사람)
+	ptinrect return 사람;
+
+	for(오브젝트)
+	ptinrect return 오브젝트;
+
+	for(벽)
+	ptrinrect return 벽;
+
+
+
+	if(설치, 철거)
+	for(타일)
+	ptinrect return 타일
+
+	*/
+
+	//UI와 ptInRect 된다면 상태를 UI로
+	{
+		SCENEMANAGER->GetCurrentScene();
+	}
+
+	switch (_state)
+	{
+		case MOUSESTATE::ONUI:
+		{
+			
+		}
+		break;
+		case MOUSESTATE::NONE:
+		{
+
+		}
+		break;
+		default:
+		break;
+	}
+
+
+
+
 }

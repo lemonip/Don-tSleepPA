@@ -14,16 +14,18 @@ void playGround::AddImage()
 	wstring path = L"source/image/";
 	wstring filter = L".png";
 
-	// tileset
+	//tileset
 	wstring folder = L"tileset/";
 	ImageManager::GetInstance()->AddFrameImage("terrain", path + folder + L"terrain" + filter, 10, 20);
 
 	//wall
 	folder = L"tileset/wall/";
-	ImageManager::GetInstance()->AddFrameImage("wall0", path + folder + L"wall0" + filter, 7, 4);
-	ImageManager::GetInstance()->AddFrameImage("wall1", path + folder + L"wall1" + filter, 7, 4);
-	ImageManager::GetInstance()->AddFrameImage("wall2", path + folder + L"wall2" + filter, 7, 4);
-	ImageManager::GetInstance()->AddFrameImage("wall3", path + folder + L"wall3" + filter, 7, 4);
+	for (int i = 0; i < (int)TILEWALL::END; i++)
+	{
+		string key1 = "wall" + to_string(i);
+		wstring key2 = L"wall" + to_wstring(i);
+		ImageManager::GetInstance()->AddFrameImage(key1, path + folder + key2 + filter, 7, 4);
+	}
 
 	//tileObject
 	folder = L"tileset/tileObject/";

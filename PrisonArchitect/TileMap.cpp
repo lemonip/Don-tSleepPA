@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "TileMap.h"
-#include "TileObjectStorage.h"
 
 HRESULT TileMap::init()
 {
@@ -72,7 +71,7 @@ void TileMap::SetTileMap(Vector2 count)
 
 		_vTile.push_back(tile);
 
-		BuildTileObject(Vector2(tile->_index.x, tile->_index.y), new TileObject(*TileObjectStorage::GetInstance()->FindTileObject("GRASS1")));
+		BuildTileObject(Vector2(tile->_index.x, tile->_index.y), new TileObject(*DATAMANAGER->FindTileObject("GRASS1")));
 		tile->_wall = NULL;
 		tile->_tileObj = NULL;
 	}

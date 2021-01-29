@@ -67,6 +67,9 @@
     <Filter Include="playGround\Character">
       <UniqueIdentifier>{bb20878d-9b31-4d63-b9e6-ae316e223d6e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="playGround\Mouse">
+      <UniqueIdentifier>{3aab5768-237e-4d0f-bb4b-6131d11b6679}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -165,9 +168,6 @@
     <ClInclude Include="TileObject.h">
       <Filter>playGround\TileMap</Filter>
     </ClInclude>
-    <ClInclude Include="MouseControl.h">
-      <Filter>playGround\TileMap</Filter>
-    </ClInclude>
     <ClInclude Include="AllEnums.h">
       <Filter>playGround</Filter>
     </ClInclude>
@@ -225,13 +225,7 @@
     <ClInclude Include="TestScene.h">
       <Filter>playGround\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="PeopleUtilC.h">
-      <Filter>2DGameFramework\ComponentPattern\Component</Filter>
-    </ClInclude>
     <ClInclude Include="DirectoryTest.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="TileObjectStorage.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Worker.h">
@@ -251,6 +245,18 @@
     </ClInclude>
     <ClInclude Include="People.h">
       <Filter>playGround\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="DataManager.h">
+      <Filter>playGround</Filter>
+    </ClInclude>
+    <ClInclude Include="MouseControl.h">
+      <Filter>playGround\Mouse</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptC.h">
+      <Filter>2DGameFramework\ComponentPattern\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="MouseControl+Object.h">
+      <Filter>playGround\Mouse</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -335,9 +341,6 @@
     <ClCompile Include="TileObject.cpp">
       <Filter>playGround\TileMap</Filter>
     </ClCompile>
-    <ClCompile Include="MouseControl.cpp">
-      <Filter>playGround\TileMap</Filter>
-    </ClCompile>
     <ClCompile Include="csv.cpp">
       <Filter>playGround\csv</Filter>
     </ClCompile>
@@ -392,13 +395,7 @@
     <ClCompile Include="TestScene.cpp">
       <Filter>playGround\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="PeopleUtilC.cpp">
-      <Filter>2DGameFramework\ComponentPattern\Component</Filter>
-    </ClCompile>
     <ClCompile Include="DirectoryTest.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="TileObjectStorage.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Worker.cpp">
@@ -418,6 +415,15 @@
     </ClCompile>
     <ClCompile Include="People.cpp">
       <Filter>playGround\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="DataManager.cpp">
+      <Filter>playGround</Filter>
+    </ClCompile>
+    <ClCompile Include="MouseControl.cpp">
+      <Filter>playGround\Mouse</Filter>
+    </ClCompile>
+    <ClCompile Include="ScriptC.cpp">
+      <Filter>2DGameFramework\ComponentPattern\Component</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -41,9 +41,20 @@ public:
 	void Release();
 	void Update();
 	void Render();
+	
 	void Control();
+	void Move();
 
 	void LinkTileMap(TileMap* tileMap) { _tileMap = tileMap; }
 
-};
 
+	template<typename T>
+	void OnCollisionEnter(T* obj);
+
+	template<typename T>
+	void OnCollisionExit(T* obj);
+
+	template<typename T>
+	void OnCollisionStay(T* obj);
+
+};

@@ -1,11 +1,14 @@
 #pragma once
-class TileObjectStorage
+
+class TileObject;
+
+class DataManager
 {
 
 public:
-	static TileObjectStorage* GetInstance()
+	static DataManager* GetInstance()
 	{
-		static TileObjectStorage istance;
+		static DataManager istance;
 		return &istance;
 	}
 
@@ -20,7 +23,7 @@ private:
 	mTileObject _mTileObject;		//타일 오브젝트를 담은 맵
 
 public:
-	void SetStorage();				//창고 세팅
+	void init();					//초기화
 
 	//GETTER
 	mTileObject* GetMTileObject() { return &_mTileObject; }

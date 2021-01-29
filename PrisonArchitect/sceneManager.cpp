@@ -1,26 +1,27 @@
 #include "stdafx.h"
 #include "sceneManager.h"
-#include "gameNode.h"
+#include "Scene.h"
 
-sceneManager::sceneManager()
+
+SceneManager::SceneManager()
 {
 }
 
 
-sceneManager::~sceneManager()
+SceneManager::~SceneManager()
 {
 }
 
-gameNode* sceneManager::_currentScene = NULL;
+Scene* SceneManager::_currentScene = NULL;
 
-HRESULT sceneManager::init()
+HRESULT SceneManager::init()
 {
 	_currentScene = NULL;
 
 	return S_OK;
 }
 
-void sceneManager::release()
+void SceneManager::release()
 {
 	mapSceneIter miSceneList = _mSceneList.begin();
 
@@ -38,17 +39,17 @@ void sceneManager::release()
 	_mSceneList.clear();
 }
 
-void sceneManager::update()
+void SceneManager::update()
 {
 	if (_currentScene) _currentScene->update();
 }
 
-void sceneManager::render()
+void SceneManager::render()
 {
 	if (_currentScene) _currentScene->render();
 }
 
-gameNode * sceneManager::addScene(string sceneName, gameNode * scene)
+Scene * SceneManager::addScene(string sceneName, Scene * scene)
 {
 	if (!scene) return nullptr;
 
@@ -57,7 +58,7 @@ gameNode * sceneManager::addScene(string sceneName, gameNode * scene)
 	return scene;
 }
 
-HRESULT sceneManager::changeScene(string sceneName)
+HRESULT SceneManager::changeScene(string sceneName)
 {
 	mapSceneIter find = _mSceneList.find(sceneName);
 
