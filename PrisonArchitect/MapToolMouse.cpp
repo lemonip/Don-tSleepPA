@@ -11,7 +11,7 @@ MapToolMouse::MapToolMouse(MapToolScene* scene)
 void MapToolMouse::Init()
 {
 
-	_mouseObj = DATAMANAGER->FindTileObject("가스레인지");
+	_buildObj = DATAMANAGER->FindTileObject("가스레인지");
 	_state = MOUSESTATE::SELECT;
 
 }
@@ -26,42 +26,42 @@ void MapToolMouse::Update()
 
 	if (KEYMANAGER->isOnceKeyDown('0'))
 	{
-		_mouseObj = NULL;
+		_buildObj = NULL;
 	}
 
 	if (KEYMANAGER->isOnceKeyDown('1'))
 	{
-		_mouseObj = DATAMANAGER->FindTileObject("가스레인지");
+		_buildObj = DATAMANAGER->FindTileObject("가스레인지");
 	}
 
 	if (KEYMANAGER->isOnceKeyDown('2'))
 	{
-		_mouseObj = DATAMANAGER->FindTileObject("배식대");
+		_buildObj = DATAMANAGER->FindTileObject("배식대");
 	}
 
 	if (KEYMANAGER->isOnceKeyDown('3'))
 	{
-		_mouseObj = DATAMANAGER->FindTileObject("벤치");
+		_buildObj = DATAMANAGER->FindTileObject("벤치");
 	}
 
 	if (KEYMANAGER->isOnceKeyDown('4'))
 	{
-		_mouseObj = DATAMANAGER->FindTileObject("wall0");
+		_buildObj = DATAMANAGER->FindTileObject("wall0");
 	}
 
 	if (KEYMANAGER->isOnceKeyDown('5'))
 	{
-		_mouseObj = DATAMANAGER->FindTileObject("wall1");
+		_buildObj = DATAMANAGER->FindTileObject("wall1");
 	}
 
 	if (KEYMANAGER->isOnceKeyDown('6'))
 	{
-		_mouseObj = DATAMANAGER->FindTileObject("사무실책상");
+		_buildObj = DATAMANAGER->FindTileObject("사무실책상");
 	}
 
 	if (KEYMANAGER->isOnceKeyDown('7'))
 	{
-		_mouseObj = DATAMANAGER->FindTileObject("GRASS2");
+		_buildObj = DATAMANAGER->FindTileObject("GRASS2");
 	}
 
 	////////
@@ -90,9 +90,9 @@ void MapToolMouse::Render()
 		}
 	}
 
-	if (_mouseObj)
+	if (_buildObj)
 	{
-		switch (_mouseObj->_type)
+		switch (_buildObj->_type)
 		{
 		case OBJECTTYPE::TERRAIN:		case OBJECTTYPE::WALL:
 		{
@@ -106,35 +106,35 @@ void MapToolMouse::Render()
 		{
 			//오브젝트가 차지하는 인덱스 렉트를 렌더한다.
 			FloatRect objRc;
-			if (_mouseObj->_direction == DIRECTION::FRONT || _mouseObj->_direction == DIRECTION::BACK)
+			if (_buildObj->_direction == DIRECTION::FRONT || _buildObj->_direction == DIRECTION::BACK)
 			{
-				objRc = FloatRect(_endPoint.x, _endPoint.y, _endPoint.x + _mouseObj->_count.x*TILESIZE, _endPoint.y + _mouseObj->_count.y*TILESIZE);
+				objRc = FloatRect(_endPoint.x, _endPoint.y, _endPoint.x + _buildObj->_count.x*TILESIZE, _endPoint.y + _buildObj->_count.y*TILESIZE);
 				objRc = CAMERAMANAGER->GetVCamera()[0]->GetRelativePos(objRc);
 				_D2DRenderer->FillRectangle(objRc, D2DRenderer::DefaultBrush::Green);
 			}
-			else if (_mouseObj->_direction == DIRECTION::RIGHT || _mouseObj->_direction == DIRECTION::LEFT)
+			else if (_buildObj->_direction == DIRECTION::RIGHT || _buildObj->_direction == DIRECTION::LEFT)
 			{
-				objRc = FloatRect(_endPoint.x, _endPoint.y, _endPoint.x + _mouseObj->_count.y*TILESIZE, _endPoint.y + _mouseObj->_count.x*TILESIZE);
+				objRc = FloatRect(_endPoint.x, _endPoint.y, _endPoint.x + _buildObj->_count.y*TILESIZE, _endPoint.y + _buildObj->_count.x*TILESIZE);
 				objRc = CAMERAMANAGER->GetVCamera()[0]->GetRelativePos(objRc);
 				_D2DRenderer->FillRectangle(objRc, D2DRenderer::DefaultBrush::Green);
 			}
 
 			//왼쪽이라면 이미지를 가로로 뒤집는다.
-			if (_mouseObj->_direction == DIRECTION::LEFT) _mouseObj->_img->SetReverseX(true);
+			if (_buildObj->_direction == DIRECTION::LEFT) _buildObj->_img->SetReverseX(true);
 
 			//마우스에 오브젝트를 렌더한다.
-			_mouseObj->_img->SetAlpha(0.5f);
-			if (_mouseObj->_direction == DIRECTION::FRONT || _mouseObj->_direction == DIRECTION::BACK)
+			_buildObj->_img->SetAlpha(0.5f);
+			if (_buildObj->_direction == DIRECTION::FRONT || _buildObj->_direction == DIRECTION::BACK)
 			{
-				_mouseObj->_img->FrameRender(Vector2(_endPoint.x + (_mouseObj->_count.x * TILESIZE) / 2,
-					TILESIZE / 2 + _endPoint.y + (_mouseObj->_count.y*TILESIZE) / 2 - _mouseObj->_img->GetFrameSize().y / 2)
-					, _mouseObj->_frame[(int)_mouseObj->_direction], 0, CAMERAMANAGER->GetVCamera()[0]);
+				_buildObj->_img->FrameRender(Vector2(_endPoint.x + (_buildObj->_count.x * TILESIZE) / 2,
+					TILESIZE / 2 + _endPoint.y + (_buildObj->_count.y*TILESIZE) / 2 - _buildObj->_img->GetFrameSize().y / 2)
+					, _buildObj->_frame[(int)_buildObj->_direction], 0, CAMERAMANAGER->GetVCamera()[0]);
 			}
-			else if (_mouseObj->_direction == DIRECTION::RIGHT || _mouseObj->_direction == DIRECTION::LEFT)
+			else if (_buildObj->_direction == DIRECTION::RIGHT || _buildObj->_direction == DIRECTION::LEFT)
 			{
-				_mouseObj->_img->FrameRender(Vector2(_endPoint.x + (_mouseObj->_count.y * TILESIZE) - TILESIZE / 2,
-					_endPoint.y + (_mouseObj->_count.x*TILESIZE) - _mouseObj->_img->GetFrameSize().y / 2)
-					, _mouseObj->_frame[(int)_mouseObj->_direction], 0, CAMERAMANAGER->GetVCamera()[0]);
+				_buildObj->_img->FrameRender(Vector2(_endPoint.x + (_buildObj->_count.y * TILESIZE) - TILESIZE / 2,
+					_endPoint.y + (_buildObj->_count.x*TILESIZE) - _buildObj->_img->GetFrameSize().y / 2)
+					, _buildObj->_frame[(int)_buildObj->_direction], 0, CAMERAMANAGER->GetVCamera()[0]);
 			}
 		}
 		break;
@@ -143,6 +143,14 @@ void MapToolMouse::Render()
 		default:
 			break;
 		}
+	}
+
+	//보여주면 안됨. 차라리 색을 바꿔 주기?
+	if (_selectObj)
+	{
+		_selectObj->_img->FrameRender(Vector2(_endPoint.x + (_selectObj->_count.y * TILESIZE) - TILESIZE / 2,
+			_endPoint.y + (_selectObj->_count.x*TILESIZE) - _selectObj->_img->GetFrameSize().y / 2)
+			, _selectObj->_frame[(int)_selectObj->_direction], 0, CAMERAMANAGER->GetVCamera()[0]);
 	}
 
 }
@@ -154,15 +162,22 @@ void MapToolMouse::Control()
 	if (_isOnUI) return;
 
 	//마우스가 있을 경우
-	if (_mouseObj)
+	if (_buildObj)
 	{
 		_state = MOUSESTATE::BUILD;
 		if (KEYMANAGER->isOnceKeyDown(VK_RBUTTON))
 		{
-			_mouseObj = NULL;
+			_buildObj = NULL;
 			_state = MOUSESTATE::SELECT;
 		}
 	}
+
+	//선택 오브젝트가 있을 경우
+	if (_selectObj)
+	{
+		_state = MOUSESTATE::DESTROY;
+	}
+
 
 	switch (_state)
 	{
@@ -173,16 +188,63 @@ void MapToolMouse::Control()
 		break;
 		case MOUSESTATE::DESTROY:
 		{
+			cout << "파괴상태" << endl;
 
+			if (_selectObj->_type == OBJECTTYPE::WALL)
+			{
+				_tileMap->GetvTile()[_selectObj->_startIndex.x + _selectObj->_startIndex.y]->_wall =  NULL;
+			}
+
+			if (_selectObj->_type == OBJECTTYPE::OBJECT)
+			{
+				for (int i = _selectObj->_startIndex.x; i < _selectObj->_startIndex.x + _selectObj->_count.x + 1; i++)
+				{
+					for (int j = _startIndex.y; j < _startIndex.y + _selectObj->_count.y + 1; j++)
+					{
+						_tileMap->GetvTile()[i + j * _tileMap->GetCount().x]->_tileObj = NULL;
+					}
+				}
+			}
+			_selectObj = NULL;
+			_state = MOUSESTATE::SELECT;
 		}
 		break;
 		case MOUSESTATE::SELECT:
 		{
 			//사람 선택
-
+			for (int i = 0; i < _scene->GetvCharacter().size(); i++)
+			{
+				if (PtInRect(&(_scene->GetvCharacter()[i]->GetTransform()->GetRect()), { (LONG)_ptMouse.x, (LONG)_ptMouse.y }))
+				{
+					if (KEYMANAGER->isOnceKeyDown(VK_LBUTTON)) OnCollisionEnter(_scene->GetvCharacter()[i]);
+					if (KEYMANAGER->isStayKeyDown(VK_LBUTTON)) OnCollisionStay(_scene->GetvCharacter()[i]);
+					if (KEYMANAGER->isOnceKeyUp(VK_LBUTTON)) OnCollisionExit(_scene->GetvCharacter()[i]);
+				}
+			}
 			//물건 선택
 
+
 			//타일 선택
+
+			//선택한 끝점
+			_endIndex.x = (int)CAMERAMANAGER->GetVCamera()[0]->GetAbsolutePos(_ptMouse).x / TILESIZE;
+			_endIndex.y = (int)CAMERAMANAGER->GetVCamera()[0]->GetAbsolutePos(_ptMouse).y / TILESIZE;
+
+			if (_endIndex.x < 0) _endIndex.x = 0;
+			if (_endIndex.y < 0) _endIndex.y = 0;
+			if (_endIndex.x >= _tileMap->GetCount().x) _endIndex.x = _tileMap->GetCount().x - 1;
+			if (_endIndex.y >= _tileMap->GetCount().y) _endIndex.y = _tileMap->GetCount().y - 1;
+
+			_endPoint.x = _endIndex.x * TILESIZE;
+			_endPoint.y = _endIndex.y * TILESIZE;
+
+			if (KEYMANAGER->isOnceKeyDown(VK_LBUTTON))
+			{
+				//OnCollisionEnter(_scene->GetMapM()->GetTileMap()->GetvTile()[i]);
+				_selectObj = _tileMap->GetvTile()[ _endIndex.y * _tileMap->GetCount().x+ _endIndex.x]->MouseEnter();
+			}
+			if (KEYMANAGER->isStayKeyDown(VK_LBUTTON)) OnCollisionStay	(_tileMap->GetvTile()[_ptMouse.y / TILESIZE * _tileMap->GetCount().x + _ptMouse.x/TILESIZE]);
+			if (KEYMANAGER->isOnceKeyUp(VK_LBUTTON))   OnCollisionExit	(_tileMap->GetvTile()[_ptMouse.y / TILESIZE * _tileMap->GetCount().x + _ptMouse.x/TILESIZE]);
 		}
 		break;
 		default:
@@ -193,8 +255,6 @@ void MapToolMouse::Control()
 
 void MapToolMouse::UIControl()
 {
-
-
 	// UI 위에 있을 경우, 마우스 상태를 UI로 변경한다.
 	for (BarButtonUI* u : _scene->GetvUnderBarUI())
 	{
@@ -231,19 +291,19 @@ void MapToolMouse::BuildControl()
 	// 마우스에 오브젝트가 달려 있는 경우 설치한다.
 	if (KEYMANAGER->isOnceKeyDown('R'))
 	{
-		int num = (int)_mouseObj->_direction;
+		int num = (int)_buildObj->_direction;
 
 		if (num == (int)DIRECTION::RIGHT) num = -1;
-		_mouseObj->_direction = (DIRECTION)(num + 1);
+		_buildObj->_direction = (DIRECTION)(num + 1);
 	}
 
-	if (!_mouseObj)	//마우스에 오브젝트가 없다면
+	if (!_buildObj)	//마우스에 오브젝트가 없다면
 	{
 		_drag = MOUSEDRAG::END;
 	}
 	else // 마우스 오브젝트의 타입에 따라 드래그를 결정
 	{
-		switch (_mouseObj->_type)
+		switch (_buildObj->_type)
 		{
 		case OBJECTTYPE::END:
 			_drag = MOUSEDRAG::END;
@@ -293,7 +353,7 @@ void MapToolMouse::BuildControl()
 
 	if (KEYMANAGER->isStayKeyDown(VK_LBUTTON))
 	{
-		if (_drag == MOUSEDRAG::POINT) _tileMap->BuildTileObject(Vector2(_endIndex.x, _endIndex.y), new TileObject(*_mouseObj));
+		if (_drag == MOUSEDRAG::POINT) _tileMap->BuildTileObject(Vector2(_endIndex.x, _endIndex.y), new TileObject(*_buildObj));
 	}
 
 	if (KEYMANAGER->isOnceKeyUp(VK_LBUTTON))
@@ -330,7 +390,7 @@ void MapToolMouse::BuildControl()
 		//드래그를 끈다.
 		_isDragging = false;
 
-		if (_mouseObj)	//마우스에 오브젝트가 있다면 생성한다
+		if (_buildObj)	//마우스에 오브젝트가 있다면 생성한다
 		{
 			switch (_drag)
 			{
@@ -345,7 +405,7 @@ void MapToolMouse::BuildControl()
 				{
 					if (_vSelectIndex[i].x > _vSelectIndex[0].x && _vSelectIndex[i].x < _vSelectIndex[_vSelectIndex.size() - 1].x
 						&&_vSelectIndex[i].y != _vSelectIndex[0].y&& _vSelectIndex[i].y < _vSelectIndex[_vSelectIndex.size() - 1].y) continue;
-					_tileMap->BuildTileObject(Vector2(_vSelectIndex[i].x, _vSelectIndex[i].y), new TileObject(*_mouseObj));
+					_tileMap->BuildTileObject(Vector2(_vSelectIndex[i].x, _vSelectIndex[i].y), new TileObject(*_buildObj));
 				}
 			}
 			break;
@@ -353,7 +413,7 @@ void MapToolMouse::BuildControl()
 			{
 				for (int i = 0; i < _vSelectIndex.size(); i++)
 				{
-					_tileMap->BuildTileObject(Vector2(_vSelectIndex[i].x, _vSelectIndex[i].y), new TileObject(*_mouseObj));
+					_tileMap->BuildTileObject(Vector2(_vSelectIndex[i].x, _vSelectIndex[i].y), new TileObject(*_buildObj));
 				}
 			}
 			break;

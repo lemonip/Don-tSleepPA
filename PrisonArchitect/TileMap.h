@@ -39,5 +39,10 @@ public:
 	//타일에 지을 수 있는지 확인 해 줌
 	bool CanBuildTile(Vector2 index, TileObject* tileObj);
 
+
+	//GETTER
+	vector<Tile*> GetvTile() { return _vTile; }
+
+
 };
 

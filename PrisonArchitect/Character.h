@@ -37,6 +37,10 @@ public:
 	virtual void update();
 	virtual void render();
 
+	virtual void MouseEnter();
+	virtual void MouseStay();
+	virtual void MouseExit();
+
 	//╟тем
 	tagCharacterInfo& GetInfo() { return _info; }
 };

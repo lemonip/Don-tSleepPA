@@ -9,6 +9,9 @@ class MapToolScene : public Scene
 private:
 	MapManager* _mapM;
 
+	vector<Character*> _vCharacter;
+
+
 	vector<BarButtonUI*>	_vUnderBarUI;
 	vector<WindowUI*>		_vUnderBarWindowUI;
 	BarButtonUI*			_currentUnderBarActive;
@@ -33,6 +36,8 @@ public:
 
 	//GETTER
 	MapManager* GetMapM() { return _mapM; }
+
+	vector<Character*> GetvCharacter() { return _vCharacter; }
 
 	vector<BarButtonUI*>	GetvUnderBarUI() { return _vUnderBarUI; };
 	vector<WindowUI*>		GetvUnderBarWindowUI() { return _vUnderBarWindowUI; }

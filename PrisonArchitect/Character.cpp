@@ -15,6 +15,9 @@ Character::Character()
 		_transform->SetPosition(Vector2(WINSIZEX / 2, WINSIZEY / 2));
 		_transform->SetDirection(DIRECTION::FRONT);
 
+		_transform->SetSize(Vector2(50, 60));
+		_transform->SetCamera(CAMERAMANAGER->GetVCamera()[0]);
+
 		//아직은 전체속도 없음 
 		_info.moveSpeed = 4.f * _gameSpeed;	//*전체속도 를 곱해줘서 이동속도와 액션속도가 바뀔거같음. 
 		_info.actSpeed = 1.f * _gameSpeed;	//*전체속도 액션속도로 팔움직이고 그런거 하지않을까.. 항상 전체속도 곱해주는것 매우 중요!!
@@ -49,14 +52,31 @@ void Character::release()
 
 void Character::update()
 {
+	_transform->Update();
 	if (KEYMANAGER->isStayKeyDown(VK_RIGHT)) _transform->Translate(Vector2(_info.moveSpeed, 0.0f));
 	if (KEYMANAGER->isStayKeyDown(VK_LEFT))	 _transform->Translate(Vector2(-_info.moveSpeed, 0.0f));
 	if (KEYMANAGER->isStayKeyDown(VK_DOWN))	 _transform->Translate(Vector2(0.0f, _info.moveSpeed));
 	if (KEYMANAGER->isStayKeyDown(VK_UP))	 _transform->Translate(Vector2(0.0f, -_info.moveSpeed));
-
 	if (KEYMANAGER->isStayKeyDown(VK_SPACE)) _transform->Translate(Vector2(RND->getFromFloatTo(-_info.moveSpeed, _info.moveSpeed), RND->getFromFloatTo(-_info.moveSpeed, _info.moveSpeed)));
 }
 
 void Character::render()
 {
+}
+
+void Character::MouseEnter()
+{
+	cout << "집혔당! 내 위치는" << GetTransform()->GetPosition().x <<"입니다~~" << endl;
+}
+
+void Character::MouseStay()
+{
+	cout << "집고 잇당" << endl;
+
+}
+
+void Character::MouseExit()
+{
+	cout << "사람을 놓아주었다!!!" << endl;
+
 }
