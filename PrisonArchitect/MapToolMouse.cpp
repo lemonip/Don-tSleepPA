@@ -153,7 +153,16 @@ void MapToolMouse::Control()
 	UIControl();
 	if (_isOnUI) return;
 
-	if (_mouseObj) _state = MOUSESTATE::BUILD;
+	//마우스가 있을 경우
+	if (_mouseObj)
+	{
+		_state = MOUSESTATE::BUILD;
+		if (KEYMANAGER->isOnceKeyDown(VK_RBUTTON))
+		{
+			_mouseObj = NULL;
+			_state = MOUSESTATE::SELECT;
+		}
+	}
 
 	switch (_state)
 	{
@@ -184,6 +193,8 @@ void MapToolMouse::Control()
 
 void MapToolMouse::UIControl()
 {
+
+
 	// UI 위에 있을 경우, 마우스 상태를 UI로 변경한다.
 	for (BarButtonUI* u : _scene->GetvUnderBarUI())
 	{
