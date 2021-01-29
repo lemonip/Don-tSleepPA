@@ -49,9 +49,6 @@
     <Filter Include="playGround\csv">
       <UniqueIdentifier>{1f2180bc-af9d-4723-b78d-0fda4815d7ff}</UniqueIdentifier>
     </Filter>
-    <Filter Include="2DGameFramework\UI">
-      <UniqueIdentifier>{ddf8df1b-f607-4628-bcf4-3a0197932cf5}</UniqueIdentifier>
-    </Filter>
     <Filter Include="2DGameFramework\ComponentPattern">
       <UniqueIdentifier>{c7e829f1-7bb1-4ca7-a740-d954c55a66c1}</UniqueIdentifier>
     </Filter>
@@ -66,6 +63,12 @@
     </Filter>
     <Filter Include="playGround\Character">
       <UniqueIdentifier>{bb20878d-9b31-4d63-b9e6-ae316e223d6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="playGround\Mouse">
+      <UniqueIdentifier>{3aab5768-237e-4d0f-bb4b-6131d11b6679}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\Manager\UI">
+      <UniqueIdentifier>{ddf8df1b-f607-4628-bcf4-3a0197932cf5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -165,9 +168,6 @@
     <ClInclude Include="TileObject.h">
       <Filter>playGround\TileMap</Filter>
     </ClInclude>
-    <ClInclude Include="MouseControl.h">
-      <Filter>playGround\TileMap</Filter>
-    </ClInclude>
     <ClInclude Include="AllEnums.h">
       <Filter>playGround</Filter>
     </ClInclude>
@@ -175,13 +175,13 @@
       <Filter>playGround\csv</Filter>
     </ClInclude>
     <ClInclude Include="Button.h">
-      <Filter>2DGameFramework\UI</Filter>
+      <Filter>2DGameFramework\Manager\UI</Filter>
     </ClInclude>
     <ClInclude Include="UI.h">
-      <Filter>2DGameFramework\UI</Filter>
+      <Filter>2DGameFramework\Manager\UI</Filter>
     </ClInclude>
     <ClInclude Include="UIManager.h">
-      <Filter>2DGameFramework\UI</Filter>
+      <Filter>2DGameFramework\Manager\UI</Filter>
     </ClInclude>
     <ClInclude Include="AllComponents.h">
       <Filter>2DGameFramework\ComponentPattern</Filter>
@@ -200,9 +200,6 @@
     </ClInclude>
     <ClInclude Include="TransformC.h">
       <Filter>2DGameFramework\ComponentPattern\Component</Filter>
-    </ClInclude>
-    <ClInclude Include="StartScene.h">
-      <Filter>playGround\Scene</Filter>
     </ClInclude>
     <ClInclude Include="Scene.h">
       <Filter>playGround\Scene</Filter>
@@ -228,9 +225,6 @@
     <ClInclude Include="DirectoryTest.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="TileObjectStorage.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="Worker.h">
       <Filter>playGround\Character</Filter>
     </ClInclude>
@@ -248,6 +242,30 @@
     </ClInclude>
     <ClInclude Include="People.h">
       <Filter>playGround\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="DataManager.h">
+      <Filter>playGround</Filter>
+    </ClInclude>
+    <ClInclude Include="MouseControl.h">
+      <Filter>playGround\Mouse</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptC.h">
+      <Filter>2DGameFramework\ComponentPattern\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleScene.h">
+      <Filter>playGround\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Mouse.h">
+      <Filter>playGround\Mouse</Filter>
+    </ClInclude>
+    <ClInclude Include="MapToolMouse.h">
+      <Filter>playGround\Mouse</Filter>
+    </ClInclude>
+    <ClInclude Include="MapToolMouse+Object.h">
+      <Filter>playGround\Mouse</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleMouse.h">
+      <Filter>playGround\Mouse</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -332,20 +350,17 @@
     <ClCompile Include="TileObject.cpp">
       <Filter>playGround\TileMap</Filter>
     </ClCompile>
-    <ClCompile Include="MouseControl.cpp">
-      <Filter>playGround\TileMap</Filter>
-    </ClCompile>
     <ClCompile Include="csv.cpp">
       <Filter>playGround\csv</Filter>
     </ClCompile>
     <ClCompile Include="Button.cpp">
-      <Filter>2DGameFramework\UI</Filter>
+      <Filter>2DGameFramework\Manager\UI</Filter>
     </ClCompile>
     <ClCompile Include="UI.cpp">
-      <Filter>2DGameFramework\UI</Filter>
+      <Filter>2DGameFramework\Manager\UI</Filter>
     </ClCompile>
     <ClCompile Include="UIManager.cpp">
-      <Filter>2DGameFramework\UI</Filter>
+      <Filter>2DGameFramework\Manager\UI</Filter>
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
       <Filter>소스 파일</Filter>
@@ -366,9 +381,6 @@
       <Filter>2DGameFramework\ComponentPattern\Component</Filter>
     </ClCompile>
     <ClCompile Include="Scene.cpp">
-      <Filter>playGround\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="StartScene.cpp">
       <Filter>playGround\Scene</Filter>
     </ClCompile>
     <ClCompile Include="MapToolScene.cpp">
@@ -392,9 +404,6 @@
     <ClCompile Include="DirectoryTest.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="TileObjectStorage.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="Worker.cpp">
       <Filter>playGround\Character</Filter>
     </ClCompile>
@@ -412,6 +421,27 @@
     </ClCompile>
     <ClCompile Include="People.cpp">
       <Filter>playGround\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="DataManager.cpp">
+      <Filter>playGround</Filter>
+    </ClCompile>
+    <ClCompile Include="MouseControl.cpp">
+      <Filter>playGround\Mouse</Filter>
+    </ClCompile>
+    <ClCompile Include="ScriptC.cpp">
+      <Filter>2DGameFramework\ComponentPattern\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleScene.cpp">
+      <Filter>playGround\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Mouse.cpp">
+      <Filter>playGround\Mouse</Filter>
+    </ClCompile>
+    <ClCompile Include="MapToolMouse.cpp">
+      <Filter>playGround\Mouse</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleMouse.cpp">
+      <Filter>playGround\Mouse</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

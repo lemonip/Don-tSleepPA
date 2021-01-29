@@ -1,9 +1,9 @@
 #pragma once
 
+/*
 enum class OBJECTTYPE;
 enum class MOUSEDRAG;
 enum class MOUSESTATE;
-
 class TileMap;
 
 class MouseControl
@@ -41,9 +41,11 @@ public:
 	void Release();
 	void Update();
 	void Render();
+	
 	void Control();
+	void Move();
 
 	void LinkTileMap(TileMap* tileMap) { _tileMap = tileMap; }
 
 };
-
+*/

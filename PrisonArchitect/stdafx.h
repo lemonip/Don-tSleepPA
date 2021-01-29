@@ -12,9 +12,9 @@
 #include <memory.h>
 #include <tchar.h>
 #include <assert.h>
-
 #include <vector>
 #include <map>
+#include <functional>
 
 using namespace std;
 
@@ -61,7 +61,7 @@ using namespace Figure;
 #include "txtData.h"
 #include "CameraManager.h"
 #include "UIManager.h"
-
+#include "DataManager.h"
 #include "image.h"
 
 #include "TileMap.h"
@@ -85,14 +85,15 @@ using namespace Figure;
 #define TIMEMANAGER timeManager::getSingleton()
 //#define EFFECTMANAGER effectManager::getSingleton()
 #define SOUNDMANAGER soundManager::getSingleton()
-#define SCENEMANAGER sceneManager::getSingleton()
+#define SCENEMANAGER SceneManager::getSingleton()
 #define CAMERAMANAGER CameraManager::GetInstance()
 #define UIMANAGER UIManager::getSingleton()
 
 //#define KEYANIMANAGER keyAniManager::getSingleton()
 #define TXTDATA txtData::getSingleton()
 #define OBJECTMANAGER ObjectManager::getSingleton()
-//#define TILEMAP TileMap::GetInstance()
+
+#define DATAMANAGER DataManager::GetInstance()
 
 #define SAFE_DELETE(p)		{if(p) {delete(p); (p) = NULL;}}
 #define SAFE_RELEASE(p)		{if(p) {(p)->release(); (p) = NULL;}}

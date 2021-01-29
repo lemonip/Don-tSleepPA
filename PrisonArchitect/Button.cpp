@@ -25,7 +25,7 @@ Button::Button(string strName, Vector2 pos, float scale, Image* img, int frameX,
 	_pos = pos;
 	_size = _img->GetFrameSize();
 	_rc = FloatRect(_pos, _size * _scale * _scale, Pivot::Center);
-	
+
 
 	_frameX = frameX;
 	_frameY = frameY;
@@ -38,7 +38,7 @@ Button::~Button()
 void Button::render()
 {
 #if true // Debug
-	
+
 	//µð¹ö±ë¿ë ·ºÆ® ·»´õ
 	if (KEYMANAGER->isToggleKey(VK_SHIFT))
 	{

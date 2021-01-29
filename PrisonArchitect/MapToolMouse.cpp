@@ -1,61 +1,28 @@
-
 #include "stdafx.h"
-#include "MouseControl.h"
-#include "TileObject.h"
-/*
-void MouseControl::Init()
+#include "MapToolMouse.h"
+#include "MapToolScene.h"
+
+MapToolMouse::MapToolMouse(MapToolScene* scene)
 {
+	_scene = scene;
+	_tileMap = _scene->GetMapM()->GetTileMap();
+}
+
+void MapToolMouse::Init()
+{
+
 	_mouseObj = DATAMANAGER->FindTileObject("가스레인지");
-	_state = MOUSESTATE::NONE;
+	_state = MOUSESTATE::SELECT;
+
 }
 
-void MouseControl::Release()
+void MapToolMouse::Release()
 {
 }
 
-void MouseControl::Update()
+void MapToolMouse::Update()
 {
-	/*
-	//항상
-	template<T>
-
-	if(KEYMANAGER->isOnceKeyDown(VK_LBUTTON))
-	ClickObject() -> Click(); //클릭함수에서 마우스가 렌더하는 이미지 또는 오브젝트를 끼워준다?
-
-	Script(컴포넌트)
-
-	for(UI)
-	ptinrect return ui;
-
-	if(선택)
-	for(사람)
-	ptinrect return 사람;
-
-	for(오브젝트)
-	ptinrect return 오브젝트;
-
-	for(벽)
-	ptrinrect return 벽;
-
-
-
-	if(설치, 철거)
-	for(타일)
-	ptinrect return 타일
-
-	*/
-
-	//Control();
-/*
-	Move();
-
-	if (KEYMANAGER->isOnceKeyDown('R'))
-	{
-		int num = (int)_mouseObj->_direction;
-
-		if (num == (int)DIRECTION::RIGHT) num = -1;
-		_mouseObj->_direction = (DIRECTION)(num + 1);
-	}
+	Control();
 
 	if (KEYMANAGER->isOnceKeyDown('0'))
 	{
@@ -96,9 +63,14 @@ void MouseControl::Update()
 	{
 		_mouseObj = DATAMANAGER->FindTileObject("GRASS2");
 	}
+
+	////////
+
+	
+
 }
 
-void MouseControl::Render()
+void MapToolMouse::Render()
 {
 	if (_isDragging)
 	{
@@ -172,10 +144,99 @@ void MouseControl::Render()
 			break;
 		}
 	}
+
 }
 
-void MouseControl::Control()
+void MapToolMouse::Control()
 {
+	//UI를 선택하는 경우
+	UIControl();
+	if (_isOnUI) return;
+
+	//마우스가 있을 경우
+	if (_mouseObj)
+	{
+		_state = MOUSESTATE::BUILD;
+		if (KEYMANAGER->isOnceKeyDown(VK_RBUTTON))
+		{
+			_mouseObj = NULL;
+			_state = MOUSESTATE::SELECT;
+		}
+	}
+
+	switch (_state)
+	{
+		case MOUSESTATE::BUILD:
+		{
+			BuildControl();
+		}
+		break;
+		case MOUSESTATE::DESTROY:
+		{
+
+		}
+		break;
+		case MOUSESTATE::SELECT:
+		{
+			//사람 선택
+
+			//물건 선택
+
+			//타일 선택
+		}
+		break;
+		default:
+		break;
+	}
+
+}
+
+void MapToolMouse::UIControl()
+{
+
+
+	// UI 위에 있을 경우, 마우스 상태를 UI로 변경한다.
+	for (BarButtonUI* u : _scene->GetvUnderBarUI())
+	{
+		if (u->getButton()->getRect().PtInRect(_ptMouse))
+		{
+			_isOnUI = true;
+			return;
+		}
+		else
+		{
+			_isOnUI = false;
+		}
+	}
+
+	for (WindowUI* w : _scene->GetvUnderBarWindowUI())
+	{
+		for (Button* b : w->getVButton())
+		{
+			if (b->getRect().PtInRect(_ptMouse))
+			{
+				_isOnUI = true;
+				return;
+			}
+			else
+			{
+				_isOnUI = false;
+			}
+		}
+	}
+}
+
+void MapToolMouse::BuildControl()
+{
+	// 마우스에 오브젝트가 달려 있는 경우 설치한다.
+	if (KEYMANAGER->isOnceKeyDown('R'))
+	{
+		int num = (int)_mouseObj->_direction;
+
+		if (num == (int)DIRECTION::RIGHT) num = -1;
+		_mouseObj->_direction = (DIRECTION)(num + 1);
+	}
+
 	if (!_mouseObj)	//마우스에 오브젝트가 없다면
 	{
 		_drag = MOUSEDRAG::END;
@@ -301,61 +362,14 @@ void MouseControl::Control()
 	}
 }
 
-void MouseControl::Move()
+void MapToolMouse::SelectControl()
 {
-	/*
-	//항상
-	template<T>
-
-	if(KEYMANAGER->isOnceKeyDown(VK_LBUTTON))
-	ClickObject() -> Click(); //클릭함수에서 마우스가 렌더하는 이미지 또는 오브젝트를 끼워준다?
-
-	Script(컴포넌트)
-
-	for(UI)
-	ptinrect return ui;
-
-	if(선택)
-	for(사람)
-	ptinrect return 사람;
-
-	for(오브젝트)
-	ptinrect return 오브젝트;
-
-	for(벽)
-	ptrinrect return 벽;
-
-
-
-	if(설치, 철거)
-	for(타일)
-	ptinrect return 타일
-
-	*/
-/*
-	//UI와 ptInRect 된다면 상태를 UI로
-	{
-		SCENEMANAGER->GetCurrentScene();
-	}
-
-	switch (_state)
-	{
-		case MOUSESTATE::ONUI:
-		{
-			
-		}
-		break;
-		case MOUSESTATE::NONE:
-		{
-
-		}
-		break;
-		default:
-		break;
-	}
-
-
-
-
 }
-*/
+
+void MapToolMouse::ObjectControl()
+{
+}
+
+void MapToolMouse::TileObjectControl()
+{
+}

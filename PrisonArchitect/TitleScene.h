@@ -1,7 +1,8 @@
 #pragma once
 #include "Scene.h"
-class StartScene : public Scene
+class TitleScene : public Scene
 {
+private:
 
 public:
 

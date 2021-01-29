@@ -19,9 +19,10 @@ enum class AREATYPE
 //마우스 상태
 enum class MOUSESTATE
 {
-	SELECT,		//선택
-	BUILD,		//설치
-	END,		//없음
+	BUILD,
+	DESTROY,
+	SELECT,
+
 };
 
 //마우스 드래그
@@ -40,6 +41,12 @@ enum class OBJECTTYPE
 	WALL,		//벽
 	OBJECT,		//물건
 	END,		//없음
+};
+
+enum class OBJECTSTATE
+{
+	COMPLETION,
+	BUILD,
 };
 
 enum class DIRECTION

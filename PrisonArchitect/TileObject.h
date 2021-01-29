@@ -1,10 +1,10 @@
 #pragma once
-
 enum class TILETERRAIN;
 enum class TILEWALL;
 enum class TILEOBJECT;
 enum class OBJECTTYPE;
 enum class DIRECTION;
+enum class OBJECTSTATE;
 
 class TileObject
 {
@@ -17,6 +17,7 @@ public:
 	~TileObject() {}
 
 	OBJECTTYPE _type;			//타입
+	OBJECTSTATE _state;			//상태
 
 	TILETERRAIN _terrainType;	//지형 타입
 	TILEWALL	_wallType;		//벽 타입
