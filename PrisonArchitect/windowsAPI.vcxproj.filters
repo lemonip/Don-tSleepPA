@@ -261,9 +261,6 @@
     <ClInclude Include="MapToolMouse.h">
       <Filter>playGround\Mouse</Filter>
     </ClInclude>
-    <ClInclude Include="MapToolMouse+Object.h">
-      <Filter>playGround\Mouse</Filter>
-    </ClInclude>
     <ClInclude Include="TitleMouse.h">
       <Filter>playGround\Mouse</Filter>
     </ClInclude>

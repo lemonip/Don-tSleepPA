@@ -24,5 +24,9 @@ public:
 	Vector2 GetIndex() { return _index; }
 
 
+	virtual TileObject* MouseEnter();
+	virtual TileObject* MouseStay();
+	virtual TileObject* MouseExit();
+
 };
 

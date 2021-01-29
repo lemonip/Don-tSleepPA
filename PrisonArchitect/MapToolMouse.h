@@ -23,7 +23,12 @@ private:
 
 
 	vector<Vector2> _vSelectIndex;		//선택 타일 인덱스
-	TileObject* _mouseObj;				//마우스 타일 오브젝트
+
+
+	TileObject* _selectObj;				//선택 오브젝트
+
+	TileObject* _buildObj;				//설치 오브젝트
+
 	TileArea* _mouseArea;				//마우스 지역
 	TileMap* _tileMap;					//타일 맵
 	MapToolScene* _scene;				//씬
@@ -46,7 +51,6 @@ public:
 	void ObjectControl();
 	void TileObjectControl();
 
-
 	template<typename T>
 	void OnCollisionEnter(T* obj);
 
@@ -56,6 +60,25 @@ public:
 	template<typename T>
 	void OnCollisionStay(T* obj);
 
-
 };
 
+template<typename T>
+inline void MapToolMouse::OnCollisionEnter(T * obj)
+{
+	obj->MouseEnter();
+
+}
+
+template<typename T>
+inline void MapToolMouse::OnCollisionExit(T * obj)
+{
+	obj->MouseExit();
+
+}
+
+template<typename T>
+inline void MapToolMouse::OnCollisionStay(T * obj)
+{
+	obj->MouseStay();
+
+}

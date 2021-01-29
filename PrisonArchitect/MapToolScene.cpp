@@ -12,6 +12,14 @@ HRESULT MapToolScene::init()
 	_mouse = new MapToolMouse(this);
 	_mouse->Init();
 
+	//캐릭터 생성
+	for (int i = 0; i < 4; i++)
+	{
+		Character* _tempP = new Prisoner(0, 0);
+		_tempP->init();
+		_vCharacter.push_back(_tempP);
+	}
+
 	//UI 생성
 	AddUI();
 
@@ -32,7 +40,16 @@ void MapToolScene::update()
 
 	_zoom = ((unsigned int)(_wheelMouse)+10) / 10.0f;
 	CAMERAMANAGER->GetVCamera()[0]->SetZoom(_zoom);
+
+	//캐릭터
+	for (int i = 0; i != _vCharacter.size(); i++)
+	{
+		_vCharacter[i]->update();
+	}
+
 	_mapM->update();
+
+
 	updateUI();
 }
 
@@ -44,7 +61,16 @@ void MapToolScene::render()
 	//CAMERAMANAGER->GetVCamera()[0]->SetPos(Vector2(WINSIZEX / 2, WINSIZEY / 2));
 
 	_mapM->render();
+
+
+	//사람들 (나중에는 Z-ORDER에 따라 정렬해야 함)
+	for (int i = 0; i != _vCharacter.size(); i++)
+	{
+		_vCharacter[i]->render();
+	}
+
 	_mouse->Render();
+
 
 	renderUI();
 

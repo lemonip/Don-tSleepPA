@@ -114,6 +114,7 @@ void TileMap::BuildTileObject(Vector2 index, TileObject * tileObj)
 		//타일을 생성 해 준다.
 		_vTile[index.y * _count.x + index.x]->_wall = tileObj;
 		_vTile[index.y * _count.x + index.x]->_wallIndex = 22;
+		_vTile[index.y * _count.x + index.x]->_wall->_startIndex = index;
 
 		//주변 네 타일을 검사하고 프레임을 바꿔 준다.
 		_vTile[index.y * _count.x + index.x]->_wallIndex = GetWallFrame(index, tileObj);

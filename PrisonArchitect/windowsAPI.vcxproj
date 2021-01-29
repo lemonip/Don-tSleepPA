@@ -173,7 +173,6 @@
     <ClInclude Include="Math.h" />
     <ClInclude Include="MapToolMouse.h" />
     <ClInclude Include="Mouse.h" />
-    <ClInclude Include="MapToolMouse+Object.h" />
     <ClInclude Include="MouseControl.h" />
     <ClInclude Include="Character.h" />
     <ClInclude Include="People.h" />
