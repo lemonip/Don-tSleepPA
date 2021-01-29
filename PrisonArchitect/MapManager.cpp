@@ -11,10 +11,6 @@ HRESULT MapManager::init()
 	_tileMap->init();
 	_tileMap->SetTileMap(Vector2(100, 50));
 
-	//마우스에 타일맵을 연결해준다.
-	MOUSECONTROL->LinkTileMap(_tileMap);
-	MOUSECONTROL->Init();
-
 	return S_OK;
 }
 
@@ -29,13 +25,10 @@ void MapManager::release()
 void MapManager::update()
 {
 	_tileMap->update();
-	MouseControl::GetInstance()->Update();
 
 }
 
 void MapManager::render()
 {
 	_tileMap->render();
-	MouseControl::GetInstance()->Render();
-
 }

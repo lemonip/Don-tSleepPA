@@ -31,10 +31,6 @@ HRESULT playGround::init()
 	//UI Ä«¸Ş¶ó
 	CAMERAMANAGER->CreateCamera(FloatRect(0, 0, WINSIZEX, WINSIZEY));
 
-	SCENEMANAGER->addScene("¸Ê¾À", new MapToolScene);
-	//SCENEMANAGER->addScene("¸Ê¾À", new TestScene);
-	SCENEMANAGER->changeScene("¸Ê¾À");
-
 	//csvÅ×½ºÆ®
 	_csv.read();
 	return S_OK;
@@ -50,7 +46,7 @@ void playGround::release()
 void playGround::update()
 {
 	gameNode::update();
-	SCENEMANAGER->update();
+	SCENEMANAGER->GetCurrentScene()->update();
 	UIMANAGER->update();
 }
 
@@ -62,8 +58,8 @@ void playGround::render()
 	//¾ÀÀ» ·»´õÇÑ´Ù.
 	{
 		CAMERAMANAGER->GetVCamera()[0]->SetPos(Vector2(_ptMouse.x, _ptMouse.y));
+		SCENEMANAGER->GetCurrentScene()->render();
 
-		SCENEMANAGER->render();
 		UIMANAGER->render();
 	}
 	

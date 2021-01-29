@@ -1,9 +1,9 @@
 #pragma once
 
+/*
 enum class OBJECTTYPE;
 enum class MOUSEDRAG;
 enum class MOUSESTATE;
-
 class TileMap;
 
 class MouseControl
@@ -47,14 +47,5 @@ public:
 
 	void LinkTileMap(TileMap* tileMap) { _tileMap = tileMap; }
 
-
-	template<typename T>
-	void OnCollisionEnter(T* obj);
-
-	template<typename T>
-	void OnCollisionExit(T* obj);
-
-	template<typename T>
-	void OnCollisionStay(T* obj);
-
 };
+*/

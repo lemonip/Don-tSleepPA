@@ -19,8 +19,9 @@ enum class AREATYPE
 //마우스 상태
 enum class MOUSESTATE
 {
-	ONUI,			//UI 위
-	NONE,		//없음
+	BUILD,
+	DESTROY,
+	SELECT,
 
 };
 

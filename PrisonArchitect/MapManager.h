@@ -12,5 +12,7 @@ public:
 	virtual void update();
 	virtual void render();
 
+	TileMap* GetTileMap() { return _tileMap; }
+
 };
 

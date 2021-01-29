@@ -92,7 +92,6 @@ using namespace Figure;
 //#define KEYANIMANAGER keyAniManager::getSingleton()
 #define TXTDATA txtData::getSingleton()
 #define OBJECTMANAGER ObjectManager::getSingleton()
-#define MOUSECONTROL MouseControl::GetInstance()
 
 #define DATAMANAGER DataManager::GetInstance()
 

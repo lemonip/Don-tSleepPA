@@ -8,14 +8,14 @@ class MapToolScene : public Scene
 {
 private:
 	MapManager* _mapM;
-	float _zoom;
 
 	vector<BarButtonUI*>	_vUnderBarUI;
 	vector<WindowUI*>		_vUnderBarWindowUI;
 	BarButtonUI*			_currentUnderBarActive;
 
 public:
-
+	MapToolScene() {};
+	~MapToolScene() {};
 	virtual HRESULT init();
 	virtual void release();
 	virtual void update();
@@ -31,6 +31,12 @@ public:
 	void addObjectButtonUIInWindowUI(int arrNum, string strName, Vector2 pos, float scale, Image* img);
 	void setLinkUnderBarUI(int arrNum, int arrNum2);
 
+	//GETTER
+	MapManager* GetMapM() { return _mapM; }
+
+	vector<BarButtonUI*>	GetvUnderBarUI() { return _vUnderBarUI; };
+	vector<WindowUI*>		GetvUnderBarWindowUI() { return _vUnderBarWindowUI; }
+	BarButtonUI*			GetvurrentUnderBarActive() { return _currentUnderBarActive; }
 
 };
 

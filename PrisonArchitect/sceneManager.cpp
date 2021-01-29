@@ -1,80 +1,30 @@
 #include "stdafx.h"
 #include "sceneManager.h"
 #include "Scene.h"
-
+#include "TitleScene.h"
 
 SceneManager::SceneManager()
 {
+	_vScene.push_back(new TitleScene);
 }
 
-
-SceneManager::~SceneManager()
+void SceneManager::ReplaceScene(Scene * scene)
 {
+	for (Scene* s : _vScene) s->release();
+	_vScene.clear();
+
+	_vScene.push_back(scene);
+	scene->init();
 }
 
-Scene* SceneManager::_currentScene = NULL;
-
-HRESULT SceneManager::init()
+void SceneManager::PushScene(Scene * scene)
 {
-	_currentScene = NULL;
-
-	return S_OK;
+	_vScene.push_back(scene);
+	scene->init();
 }
 
-void SceneManager::release()
+void SceneManager::PopScene(Scene * scene)
 {
-	mapSceneIter miSceneList = _mSceneList.begin();
-
-	for (; miSceneList != _mSceneList.end();)
-	{
-		if (miSceneList->second != NULL)
-		{
-			if (miSceneList->second == _currentScene) miSceneList->second->release();
-			SAFE_DELETE(miSceneList->second);
-			miSceneList = _mSceneList.erase(miSceneList);
-		}
-		else ++miSceneList;
-	}
-
-	_mSceneList.clear();
-}
-
-void SceneManager::update()
-{
-	if (_currentScene) _currentScene->update();
-}
-
-void SceneManager::render()
-{
-	if (_currentScene) _currentScene->render();
-}
-
-Scene * SceneManager::addScene(string sceneName, Scene * scene)
-{
-	if (!scene) return nullptr;
-
-	_mSceneList.insert(make_pair(sceneName, scene));
-
-	return scene;
-}
-
-HRESULT SceneManager::changeScene(string sceneName)
-{
-	mapSceneIter find = _mSceneList.find(sceneName);
-
-	if (find == _mSceneList.end()) return E_FAIL;
-	if (find->second == _currentScene) return S_OK;
-
-	if (SUCCEEDED(find->second->init()))
-	{
-		//어떤 씬의 정보가 들어있기 때문에 릴리즈 먼저 해주고
-		if (_currentScene) _currentScene->release();
-
-		//현재 씬에 바꾸려는 씬을 담는다
-		_currentScene = find->second;
-
-		return S_OK;
-	}
-
-	return E_FAIL;
+	_vScene[_vScene.size() - 1]->release();
+	_vScene.pop_back();
 }

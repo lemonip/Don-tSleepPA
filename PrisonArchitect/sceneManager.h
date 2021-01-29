@@ -1,36 +1,25 @@
 #pragma once
 #include "singletonBase.h"
-#include <stack>
 class Scene;
 
 class SceneManager : public singletonBase<SceneManager>
 {
 public:
-	typedef map<string, Scene*>			 mapSceneList;
-	typedef map<string, Scene*>::iterator mapSceneIter;
-
-	typedef stack<Scene*>	sScene;
+	typedef vector<Scene*>	vScene;
 
 private:
-	static Scene* _currentScene;
-	mapSceneList _mSceneList;
-
-	//sScene _sScene;		//스택에 담긴 씬
+	vScene _vScene;		//스택에 담긴 씬
 
 public:
 	SceneManager();
-	~SceneManager();
+	~SceneManager() {};
 
-	HRESULT init();
-	void release();
-	void update();
-	void render();
+	void ReplaceScene(Scene* scene);
+	void PushScene(Scene* scene);
+	void PopScene(Scene* scene);
 
-	Scene* addScene(string sceneName, Scene* scene);
-
-	HRESULT changeScene(string sceneName);
-
-	Scene* GetCurrentScene() { return _currentScene; }
+	Scene* GetCurrentScene() { return _vScene[_vScene.size() - 1]; };
+	vScene GetsScene() { return _vScene; }
 
 };
 

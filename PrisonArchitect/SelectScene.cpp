@@ -3,7 +3,6 @@
 
 HRESULT SelectScene::init()
 {
-	willRelease = true;
 	return S_OK;
 }
 

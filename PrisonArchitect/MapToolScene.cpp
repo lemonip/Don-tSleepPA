@@ -1,24 +1,35 @@
 #include "stdafx.h"
 #include "MapToolScene.h"
+#include "MapToolMouse.h"
 
 HRESULT MapToolScene::init()
 {
-	willRelease = false;
-
+	//맵 생성 및 초기화
 	_mapM = new MapManager;
 	_mapM->init();
+
+	//마우스 생성 및 초기화
+	_mouse = new MapToolMouse(this);
+	_mouse->Init();
+
+	//UI 생성
 	AddUI();
+
 	return S_OK;
 }
 
 void MapToolScene::release()
 {
+	Scene::release();
+
 	_mapM->release();
 	delete _mapM;
 }
 
 void MapToolScene::update()
 {
+	_mouse->Update();
+
 	_zoom = ((unsigned int)(_wheelMouse)+10) / 10.0f;
 	CAMERAMANAGER->GetVCamera()[0]->SetZoom(_zoom);
 	_mapM->update();
@@ -27,12 +38,16 @@ void MapToolScene::update()
 
 void MapToolScene::render()
 {
+
 	CAMERAMANAGER->GetVCamera()[0]->SetPos(Vector2(_ptMouse.x, _ptMouse.y));
 	CAMERAMANAGER->GetVCamera()[1]->SetPos(Vector2(WINSIZEX / 2, WINSIZEY / 2));
 	//CAMERAMANAGER->GetVCamera()[0]->SetPos(Vector2(WINSIZEX / 2, WINSIZEY / 2));
 
 	_mapM->render();
+	_mouse->Render();
+
 	renderUI();
+
 
 }
 
@@ -67,7 +82,7 @@ void MapToolScene::AddUI()
 
 void MapToolScene::updateUI()
 {
-
+	/*
 	// 레이어 판단 추가 필욬
 	for (BarButtonUI* u : _vUnderBarUI)
 	{
@@ -108,6 +123,12 @@ void MapToolScene::updateUI()
 			}
 		}
 	}
+	*/
+
+
+	/////
+
+	
 }
 
 void MapToolScene::renderUI()

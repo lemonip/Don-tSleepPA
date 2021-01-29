@@ -3,7 +3,6 @@
 
 HRESULT ScenarioScene::init()
 {
-	willRelease = true;
 
 	return S_OK;
 }
