@@ -20,12 +20,18 @@ void CampaignScene::release()
 
 void CampaignScene::update()
 {
+
+	if (KEYMANAGER->isOnceKeyUp(VK_RETURN))
+	{
+		SCENEMANAGER->PopScene(this);
+	}
+
 }
 
 void CampaignScene::render()
 {
-	IMAGEMANAGER->FindImage("temp")->Render(Vector2(0,0));
-	IMAGEMANAGER->FindImage("dialogWindow")->Render(Vector2(0,0));
+	IMAGEMANAGER->FindImage("temp")->Render(Vector2(0,0), CAMERAMANAGER->GetVCamera()[0]);
+	IMAGEMANAGER->FindImage("dialogWindow")->Render(Vector2(0,0), CAMERAMANAGER->GetVCamera()[1]);
 
 	for (int i = 0; i != _vPeople.size(); i++)
 	{

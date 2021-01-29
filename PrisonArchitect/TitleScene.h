@@ -3,7 +3,7 @@
 class TitleScene : public Scene
 {
 private:
-
+	Image* _logoImg;
 public:
 
 	virtual HRESULT init();

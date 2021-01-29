@@ -6,6 +6,7 @@
 SceneManager::SceneManager()
 {
 	_vScene.push_back(new TitleScene);
+	_vScene[0]->init();
 }
 
 void SceneManager::ReplaceScene(Scene * scene)

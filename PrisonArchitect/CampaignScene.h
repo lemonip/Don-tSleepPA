@@ -6,6 +6,8 @@ class CampaignScene : public Scene
 {
 	vector<People*> _vPeople;
 private:
+	Image* _d;
+	GameObject* _f;
 
 public:
 

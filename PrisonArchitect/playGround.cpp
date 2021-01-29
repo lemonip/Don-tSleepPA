@@ -57,6 +57,8 @@ void playGround::render()
 
 	//¾ÀÀ» ·»´õÇÑ´Ù.
 	{
+		//Ä«¸Ş¶ó·»´õ¸¦ ¾À¿¡¼­ ÇÏ¸éµÇÁö¾ÊÀ»°¡..???
+		//CAMERAMANAGER->GetVCamera()[0]->SetPos(Vector2(WINSIZEX/2, WINSIZEY/2));
 		CAMERAMANAGER->GetVCamera()[0]->SetPos(Vector2(_ptMouse.x, _ptMouse.y));
 		SCENEMANAGER->GetCurrentScene()->render();
 

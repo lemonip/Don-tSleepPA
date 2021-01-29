@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "MapToolScene.h"
 #include "MapToolMouse.h"
+#include "CampaignScene.h"
 
 HRESULT MapToolScene::init()
 {
@@ -36,6 +37,10 @@ void MapToolScene::release()
 
 void MapToolScene::update()
 {
+	if (KEYMANAGER->isOnceKeyUp(VK_RETURN))
+	{
+		SCENEMANAGER->PushScene(new CampaignScene);
+	}
 	_mouse->Update();
 
 	_zoom = ((unsigned int)(_wheelMouse)+10) / 10.0f;
