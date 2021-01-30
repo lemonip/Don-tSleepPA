@@ -8,6 +8,8 @@ class CampaignScene : public Scene
 private:
 	Image* _d;
 	GameObject* _f;
+	Vector2 _cameraPos;
+	float _cameraZoom;
 
 public:
 

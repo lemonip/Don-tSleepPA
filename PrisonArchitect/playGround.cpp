@@ -59,7 +59,6 @@ void playGround::render()
 	{
 		//카메라렌더를 씬에서 하면되지않을가..???
 		//CAMERAMANAGER->GetVCamera()[0]->SetPos(Vector2(WINSIZEX/2, WINSIZEY/2));
-		CAMERAMANAGER->GetVCamera()[0]->SetPos(Vector2(_ptMouse.x, _ptMouse.y));
 		SCENEMANAGER->GetCurrentScene()->render();
 
 		UIMANAGER->render();
