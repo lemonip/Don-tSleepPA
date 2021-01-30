@@ -10,17 +10,17 @@ Prisoner::Prisoner(int bodNum, int headNum)
 		char bodImgName[20];
 		sprintf_s(bodImgName, "bod%d", bodNum);
 		_torso = CreateObject(this);
-		_torso->AddComponent<DrawC>()->_img = IMAGEMANAGER->FindImage(bodImgName);
-		_torso->GetComponent<DrawC>()->SetCamera(CAMERAMANAGER->GetVCamera()[0]);
+		_torso->AddComponent<ImageC>()->SetImage(IMAGEMANAGER->FindImage(bodImgName));
+		_torso->GetComponent<ImageC>()->SetCamera(CAMERAMANAGER->GetVCamera()[0]);
 		_torso->GetTransform()->SetPosition(_transform->GetPosition());
 
 		//머리 초기화
 		char headImgName[20];
 		sprintf_s(headImgName, "head%d", headNum);
 		_head = CreateObject(this);
-		_head->AddComponent<DrawC>()->_img = IMAGEMANAGER->FindImage(headImgName);
+		_head->AddComponent<ImageC>()->SetImage(IMAGEMANAGER->FindImage(headImgName));
 		_head->GetTransform()->SetPosition(Vector2(_transform->GetPosition().x, _transform->GetPosition().y - HEADOFFSET));
-		_head->GetComponent<DrawC>()->SetCamera(CAMERAMANAGER->GetVCamera()[0]);
+		_head->GetComponent<ImageC>()->SetCamera(CAMERAMANAGER->GetVCamera()[0]);
 
 	}
 }
@@ -45,14 +45,14 @@ void Prisoner::update()
 
 void Prisoner::render()
 {
-	//각 부위별 렌더
-	if (_torso->GetTransform()->GetDirection() == DIRECTION::RIGHT) _torso->GetComponent<DrawC>()->_img->SetReverseX(true);
-	_torso->GetComponent<DrawC>()->Render(_info.frameX[(int)_transform->GetDirection()], 0);
+	Character::render();
 
-	if (_head->GetTransform()->GetDirection() == DIRECTION::RIGHT) _head->GetComponent<DrawC>()->_img->SetReverseX(true);
-	_head->GetComponent<DrawC>()->Render(_info.frameX[(int)_transform->GetDirection()], 0);
+	//방향에 따른 반전
+	if (_torso->GetTransform()->GetDirection() == DIRECTION::RIGHT) _torso->GetComponent<ImageC>()->SetReverese(true, false);
+	_torso->GetComponent<ImageC>()->SetFrame(Vector2(_info.frameX[(int)_transform->GetDirection()], 0));
 
-	_rightHand->GetComponent<DrawC>()->Render();
-	_leftHand->GetComponent<DrawC>()->Render();
+	if (_head->GetTransform()->GetDirection() == DIRECTION::RIGHT) _head->GetComponent<ImageC>()->SetReverese(true, false);
+	_head->GetComponent<ImageC>()->SetFrame(Vector2(_info.frameX[(int)_transform->GetDirection()], 0));
+
 }
 

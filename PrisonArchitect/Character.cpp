@@ -27,18 +27,18 @@ Character::Character()
 	{
 		//오른손 초기화
 		_rightHand = CreateObject(this);
-		_rightHand->AddComponent<DrawC>()->_img = IMAGEMANAGER->FindImage("hand");
-		_rightHand->GetComponent<DrawC>()->SetCamera(CAMERAMANAGER->GetVCamera()[0]);
-		_rightHand->GetTransform()->SetPosition
-		(Vector2(_transform->GetPosition().x - HANDOFFSETX, _transform->GetPosition().y - HANDOFFSETY));
+		_rightHand->AddComponent<ImageC>()->SetImage(IMAGEMANAGER->FindImage("hand"));
+		_rightHand->GetComponent<ImageC>()->SetCamera(CAMERAMANAGER->GetVCamera()[0]);
+		_rightHand->GetTransform()->SetPosition(Vector2(_transform->GetPosition().x - HANDOFFSETX, _transform->GetPosition().y - HANDOFFSETY));
 
 		//왼손 초기화
 		_leftHand = CreateObject(this);
-		_leftHand->AddComponent<DrawC>()->_img = IMAGEMANAGER->FindImage("hand");
-		_leftHand->GetComponent<DrawC>()->SetCamera(CAMERAMANAGER->GetVCamera()[0]);
-		_leftHand->GetTransform()->SetPosition
-		(Vector2(_transform->GetPosition().x + HANDOFFSETX, _transform->GetPosition().y - HANDOFFSETY));
+		_leftHand->AddComponent<ImageC>()->SetImage(IMAGEMANAGER->FindImage("hand"));
+		_leftHand->GetComponent<ImageC>()->SetCamera(CAMERAMANAGER->GetVCamera()[0]);
+		_leftHand->GetTransform()->SetPosition(Vector2(_transform->GetPosition().x + HANDOFFSETX, _transform->GetPosition().y - HANDOFFSETY));
 	}
+
+	GameObject::SetActive(true);
 }
 
 HRESULT Character::init()
@@ -52,7 +52,10 @@ void Character::release()
 
 void Character::update()
 {
+	GameObject::Update();
+
 	_transform->Update();
+
 	if (KEYMANAGER->isStayKeyDown(VK_RIGHT)) _transform->Translate(Vector2(_info.moveSpeed, 0.0f));
 	if (KEYMANAGER->isStayKeyDown(VK_LEFT))	 _transform->Translate(Vector2(-_info.moveSpeed, 0.0f));
 	if (KEYMANAGER->isStayKeyDown(VK_DOWN))	 _transform->Translate(Vector2(0.0f, _info.moveSpeed));
@@ -62,6 +65,8 @@ void Character::update()
 
 void Character::render()
 {
+	GameObject::Render();
+
 }
 
 void Character::MouseEnter()
@@ -72,11 +77,9 @@ void Character::MouseEnter()
 void Character::MouseStay()
 {
 	cout << "집고 잇당" << endl;
-
 }
 
 void Character::MouseExit()
 {
 	cout << "사람을 놓아주었다!!!" << endl;
-
 }

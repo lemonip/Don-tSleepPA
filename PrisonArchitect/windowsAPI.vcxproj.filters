@@ -70,6 +70,9 @@
     <Filter Include="2DGameFramework\Manager\UI">
       <UniqueIdentifier>{ddf8df1b-f607-4628-bcf4-3a0197932cf5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="2DGameFramework\ComponentPattern\Component\DrawC">
+      <UniqueIdentifier>{ff16270e-1a4e-4050-9154-e5f1887cb073}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -192,9 +195,6 @@
     <ClInclude Include="GameObject.h">
       <Filter>2DGameFramework\ComponentPattern</Filter>
     </ClInclude>
-    <ClInclude Include="DrawC.h">
-      <Filter>2DGameFramework\ComponentPattern\Component</Filter>
-    </ClInclude>
     <ClInclude Include="SoundC.h">
       <Filter>2DGameFramework\ComponentPattern\Component</Filter>
     </ClInclude>
@@ -263,6 +263,15 @@
     </ClInclude>
     <ClInclude Include="TitleMouse.h">
       <Filter>playGround\Mouse</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawC.h">
+      <Filter>2DGameFramework\ComponentPattern\Component\DrawC</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageC.h">
+      <Filter>2DGameFramework\ComponentPattern\Component\DrawC</Filter>
+    </ClInclude>
+    <ClInclude Include="RectC.h">
+      <Filter>2DGameFramework\ComponentPattern\Component\DrawC</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -368,9 +377,6 @@
     <ClCompile Include="GameObject.cpp">
       <Filter>2DGameFramework\ComponentPattern</Filter>
     </ClCompile>
-    <ClCompile Include="DrawC.cpp">
-      <Filter>2DGameFramework\ComponentPattern\Component</Filter>
-    </ClCompile>
     <ClCompile Include="SoundC.cpp">
       <Filter>2DGameFramework\ComponentPattern\Component</Filter>
     </ClCompile>
@@ -439,6 +445,15 @@
     </ClCompile>
     <ClCompile Include="TitleMouse.cpp">
       <Filter>playGround\Mouse</Filter>
+    </ClCompile>
+    <ClCompile Include="DrawC.cpp">
+      <Filter>2DGameFramework\ComponentPattern\Component\DrawC</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageC.cpp">
+      <Filter>2DGameFramework\ComponentPattern\Component\DrawC</Filter>
+    </ClCompile>
+    <ClCompile Include="RectC.cpp">
+      <Filter>2DGameFramework\ComponentPattern\Component\DrawC</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

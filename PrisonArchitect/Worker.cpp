@@ -11,8 +11,8 @@ Worker::Worker(int num)
 		char bodImgName[20];
 		sprintf_s(bodImgName, "worker%d", num);
 		_torso = CreateObject();
-		_torso->AddComponent<DrawC>()->_img = IMAGEMANAGER->FindImage(bodImgName);
-		_torso->GetComponent<DrawC>()->SetCamera(CAMERAMANAGER->GetVCamera()[0]);
+		_torso->AddComponent<ImageC>()->SetImage(IMAGEMANAGER->FindImage(bodImgName));
+		_torso->GetComponent<ImageC>()->SetCamera(CAMERAMANAGER->GetVCamera()[0]);
 		_torso->GetTransform()->SetPosition(_transform->GetPosition());
 	}
 }

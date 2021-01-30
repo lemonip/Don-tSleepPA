@@ -62,7 +62,7 @@ void playGround::render()
 
 		UIMANAGER->render();
 	}
-	
+
 	//º¤¹öÆÛ ·»´õ¸¦ ³¡³½´Ù.
 	D2DRenderer::GetInstance()->EndRender();
 }

@@ -164,6 +164,7 @@
     <ClInclude Include="gameNode.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="image.h" />
+    <ClInclude Include="ImageC.h" />
     <ClInclude Include="imageManager.h" />
     <ClInclude Include="keyManager.h" />
     <ClInclude Include="LibraryHeader.h" />
@@ -179,6 +180,7 @@
     <ClInclude Include="playGround.h" />
     <ClInclude Include="Prisoner.h" />
     <ClInclude Include="randomFunction.h" />
+    <ClInclude Include="RectC.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="ScenarioScene.h" />
     <ClInclude Include="Scene.h" />
@@ -228,6 +230,7 @@
     <ClCompile Include="gameNode.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="image.cpp" />
+    <ClCompile Include="ImageC.cpp" />
     <ClCompile Include="imageManager.cpp" />
     <ClCompile Include="keyManager.cpp" />
     <ClCompile Include="Line.cpp" />
@@ -242,6 +245,7 @@
     <ClCompile Include="playGround+AddSource.cpp" />
     <ClCompile Include="playGround.cpp" />
     <ClCompile Include="Prisoner.cpp" />
+    <ClCompile Include="RectC.cpp" />
     <ClCompile Include="ScenarioScene.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="sceneManager.cpp" />

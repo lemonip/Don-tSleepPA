@@ -1,5 +1,5 @@
 #pragma once
 
 #include "TransformC.h"
-#include "DrawC.h"
+#include "ImageC.h"
 #include "GameObject.h"

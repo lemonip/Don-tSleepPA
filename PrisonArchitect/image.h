@@ -40,6 +40,7 @@ private:
 
 	bool						mIsReverseAxisX;
 	bool						mIsReverseAxisY;
+	bool						mIsFrameImage;
 
 private:
 	friend class ImageManager;
@@ -80,5 +81,7 @@ public:
 	const float GetScale()const { return this->mScale; }
 	Vector2 GetFrameSize(const int& frame = 0) const { return Vector2(mFrameInfo[frame].width, mFrameInfo[frame].height); }
 	const TagLoadedImageInfo& GetLoadInfo() const { return mLoadInfo; }
+
+	bool GetIsFrameImage() { return mIsFrameImage; }
 };
 

@@ -5,6 +5,7 @@
 
 GameObject::GameObject()
 {
+	_isActive = true;
 }
 
 GameObject * GameObject::CreateObject(GameObject * parent)
